@@ -76,9 +76,6 @@
             }
         }
 
-        // Variable to load week information from server
-        var nextLoadingWeek = 1;
-
         function submitForm() {
             $("#spinner").addClass("fa-circle-o-notch fa-spin fa-3x fa-fw");
 
@@ -102,7 +99,6 @@
                         window.localStorage.setItem('mbsr_week_1', d);
 
                         // Get the next weeks from server
-                        nextLoadingWeek = 2;
                         setTimeout(function () {
                             getWeek2();
                         }, 100);
@@ -116,35 +112,6 @@
             } else {
                 alert("Non sei connesso. Impossibile procedere!");
             }
-        }
-
-        function getWeekDateFromServer(weekToGet) {
-            var form_data = new FormData(document.getElementById("login_form"));
-            $.ajax({
-                url: "http://www.mindfulness-istc.online/php_scripts/getWeek" + weekToGet + ".php",
-                type: "POST",
-                data: form_data,
-                processData: false,  // tell jQuery not to process the data
-                contentType: false   // tell jQuery not to set contentType
-            }).done(function (data) {
-                if (data != 0) {  //success
-                    var d = new Date(data);
-                    d.setHours(20, 00, 00, 0);
-                    window.localStorage.setItem('mbsr_week_' + weekToGet, d);
-
-                    if (weekToGet < 8) {
-                        nextLoadingWeek = nextLoadingWeek + 1;
-                        setTimeout(function () {
-                            getWeek(nextLoadingWeek);
-                        }, 100);
-                    } else {
-                        window.location.href = 'login.html';
-                    }
-                } else {    //data-send fails
-                    alert("Login failed! Please try again");
-                }
-            });
-            return false;
         }
 
         function getWeek2() {
@@ -315,7 +282,7 @@
                         // window.alert(window.localStorage.getItem('mbsr_week_1') + window.localStorage.getItem('mbsr_week_2') + window.localStorage.getItem('mbsr_week_3') + window.localStorage.getItem('mbsr_week_4') + window.localStorage.getItem('mbsr_week_5') + window.localStorage.getItem('mbsr_week_6') + window.localStorage.getItem('mbsr_week_7') + window.localStorage.getItem('mbsr_week_8'));
 
                         // Go to weeks page
-                        window.location.href = 'loginFirst.html';
+                        window.location.href = 'login.html';
                     }, 100);
 
                 } else {    //data-send fails

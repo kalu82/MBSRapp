@@ -33,9 +33,6 @@
     <script src="js/checksController.js"></script>
     <script src="js/player_function.js"></script>
 
-    <script type="text/javascript" src="cordova.js"></script>
-    <script type="text/javascript" src="js/txtlog.js"></script>
-
     <!-- Check if user is logged; otherwise, go to login page -->
     <script>
         if (!checkLogin()) {
@@ -129,14 +126,11 @@
                                                 <i class="fa-li fa fa-minus-square-o"></i>Body scan (30 min)</li>
                                             <li>
                                                 <div class="btn-group">
-                                                    <button class="btn btn-blue" id="btn_playBS" onclick="trackPlay('BS',document.getElementById('trackBS'))">
-                                                        <i class="fa fa-play"></i>
+                                                    <button class="btn btn-blue" id="btn_playBS" onclick="trackPlay('BS',document.getElementById('trackBS'))"><i class="fa fa-play"></i>
                                                     </button>
-                                                    <button class="btn btn-yellow" id="btn_pauseBS" onclick="trackPause('BS',document.getElementById('trackBS'))" disabled>
-                                                        <i class="fa fa-pause"></i>
+                                                    <button class="btn btn-yellow" id="btn_pauseBS" onclick="trackPause('BS',document.getElementById('trackBS'))" disabled><i class="fa fa-pause"></i>
                                                     </button>
-                                                    <button class="btn btn-red" id="btn_stopBS" onclick="trackStop('BS',document.getElementById('trackBS'))" disabled>
-                                                        <i class="fa fa-stop"></i>
+                                                    <button class="btn btn-red" id="btn_stopBS" onclick="trackStop('BS',document.getElementById('trackBS'))" disabled><i class="fa fa-stop"></i>
                                                     </button>
                                                 </div>
                                             </li>
@@ -146,14 +140,11 @@
                                                 <i class="fa-li fa fa-minus-square-o"></i>Movimento consapevole (40 min)</li>
                                             <li>
                                                 <div class="btn-group">
-                                                    <button class="btn btn-blue" id="btn_playMC" onclick="trackPlay('MC',document.getElementById('trackMC'))">
-                                                        <i class="fa fa-play"></i>
+                                                    <button class="btn btn-blue" id="btn_playMC" onclick="trackPlay('MC',document.getElementById('trackMC'))"><i class="fa fa-play"></i>
                                                     </button>
-                                                    <button class="btn btn-yellow" id="btn_pauseMC" onclick="trackPause('MC',document.getElementById('trackMC'))" disabled>
-                                                        <i class="fa fa-pause"></i>
+                                                    <button class="btn btn-yellow" id="btn_pauseMC" onclick="trackPause('MC',document.getElementById('trackMC'))" disabled><i class="fa fa-pause"></i>
                                                     </button>
-                                                    <button class="    btn btn-red" id="btn_stopMC" onclick="trackStop('MC',document.getElementById('trackMC'))" disabled>
-                                                        <i class="fa fa-stop"></i>
+                                                    <button class="btn btn-red" id="btn_stopMC" onclick="trackStop('MC',document.getElementById('trackMC'))" disabled><i class="fa fa-stop"></i>
                                                     </button>
                                                 </div>
                                             </li>
@@ -224,6 +215,8 @@
         </div>
     </div>
 
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="js/txtlog.js"></script>
 </body>
 
 </html>

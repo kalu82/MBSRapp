@@ -14,9 +14,6 @@
     <script src="js/jquery-3.2.1.min.js"></script>
     <script src="js/tools.js"></script>;
 
-    <script type="text/javascript" src="cordova.js"></script>
-    <script type="text/javascript" src="js/txtlog.js"></script>
-
     <!-- Font Awesome -->
     <link rel="stylesheet" href="css/font-awesome.min.css">
     <link rel="stylesheet" href="css/font-awesome.css">
@@ -72,9 +69,6 @@
     </div>
 
     <script>
-        // Go to weeks page
-        window.location.href = 'removeLog.html';
-        
         document.addEventListener('deviceready', onDeviceReady, false);
         function onDeviceReady() {
             if (navigator.onLine) {
@@ -160,6 +154,10 @@
             window.location.href = 'removeLog.html';
         }
     </script>
+
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="js/txtlog.js"></script>
+
 </body>
 
 </html>

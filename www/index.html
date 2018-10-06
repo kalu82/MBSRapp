@@ -72,7 +72,8 @@
     <script>
         function checkStartingPage() {
             if (checkLogin()) {
-                window.location.href = 'login.html';
+                document.getElementById('i_username').value = window.localStorage.getItem('username');
+                document.getElementById('i_id').value = window.localStorage.getItem('id');
             }
         }
 

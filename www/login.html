@@ -35,9 +35,7 @@
 
             <div class="col text-center">
                 <!-- Heading -->
-                <p></p>
-                <i class="white-text fa fa-circle-o-notch fa-spin fa-3x fa-fw"></i>
-                <h4 id="textH" class="white-text my-4">Login in corso...</h4>
+                <p></p><i class="white-text fa fa-circle-o-notch fa-spin fa-3x fa-fw"></i><h4 id="textH" class="white-text my-4">Login in corso...</h4>
             </div>
         </div>
 
@@ -47,18 +45,10 @@
             <input type="hidden" id="m_id" name="m_id" value="">
             <input type="hidden" id="m_username" name="m_username" value="">
             <input type="hidden" id="m_action" name="m_action" value="">
-            <input type="hidden" id="m_week" name="m_week" value="">
-            <input type="hidden" id="m_day" name="m_day" value="">
-            <input type="hidden" id="m_device" name="m_device" value="">
+            <input type="hidden" id="m_week" name="m_week" value="0">
+            <input type="hidden" id="m_day" name="m_day" value="0">
+            <input type="hidden" id="m_device" name="m_device" value="app">
             <input type="hidden" id="m_date" name="m_date" value="">
-            <input type="hidden" id="m_month" name="m_month" value="">
-            <input type="hidden" id="m_year" name="m_year" value="">
-            <input type="hidden" id="m_hour" name="m_hour" value="">
-            <input type="hidden" id="m_min" name="m_min" value="">
-            <input type="hidden" id="m_sec" name="m_sec" value="">
-            <input type="hidden" id="m_timestring" name="m_timestring" value="">
-            <input type="hidden" id="m_playingTrack" name="m_playingTrack" value="">
-            <input type="hidden" id="m_progressTrack" name="m_progressTrack" value="">
         </form>
 
         <!-- Hidden button and text to log data -->
@@ -98,7 +88,7 @@
                 // By tabs
                 var tabs = lines[line].split('\t');
 
-                if (tabs[0].replace(' ', '') == "0") {
+                if (tabs[0].replace(' ', '')=="0") {
                     countNum = countNum + 1;
 
                     // Send only data not already in the server db
@@ -109,24 +99,15 @@
                     document.getElementById("m_day").value = tabs[5].replace(' ', '');
                     document.getElementById("m_device").value = tabs[6].replace(' ', '');
                     document.getElementById("m_date").value = tabs[7].slice(2, tabs[7].length - 7);
-                    document.getElementById("m_month").value = tabs[8].replace(' ', '');
-                    document.getElementById("m_year").value = tabs[9].replace(' ', '');
-                    document.getElementById("m_hour").value = tabs[10].replace(' ', '');
-                    document.getElementById("m_min").value = tabs[11].replace(' ', '');
-                    document.getElementById("m_sec").value = tabs[12].replace(' ', '');
-                    document.getElementById("m_timestring").value = tabs[13].replace(' ', '');
-
-                    document.getElementById("m_playingTrack").value = tabs[14].replace(' ', '');
-                    document.getElementById("m_progressTrack").value = tabs[15].replace(' ', '');
 
                     var form_data = new FormData(document.getElementById("action_form"));
-                    sendActionFromTxtLog();
+                    sendAction();
                 }
             }
 
             setTimeout(function () {
                 loginFunction();
-            }, 100 * countNum);
+            }, 300*countNum);
         }
 
         function loginFunction() {
@@ -173,7 +154,15 @@
             }
 
             // Set login log
-            sendAction('login');
+            document.getElementById("m_id").value = window.localStorage.getItem("id");
+            document.getElementById("m_username").value = window.localStorage.getItem("username");
+            document.getElementById("m_week").value = "0";
+            document.getElementById("m_day").value = "0";
+            document.getElementById("m_device").value = "app";
+            document.getElementById("m_action").value = "login";
+            this.sendAction();
+            this.setLogText();
+            if (document.getElementById("m_sent").value == "0") { document.getElementById("log_btn").click(); }
 
             // Go to weeks page
             window.location.href = 'removeLog.html';
@@ -182,7 +171,6 @@
 
     <script type="text/javascript" src="cordova.js"></script>
     <script type="text/javascript" src="js/txtlog.js"></script>
-
 </body>
 
 </html>

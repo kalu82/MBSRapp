@@ -12,8 +12,8 @@
     <meta name="author" content="MBSR@ISTC">
 
     <script src="js/jquery-3.2.1.min.js"></script>
-    <script src="js/tools.js"></script>;
-
+    <script src="js/tools.js"></script>;   
+    
     <!-- Font Awesome -->
     <link rel="stylesheet" href="css/font-awesome.min.css">
     <link rel="stylesheet" href="css/font-awesome.css">
@@ -29,22 +29,17 @@
 
 </head>
 
-<body onload="checkStartingPage()">
+<body onload="checkLogin()">
     <div class="intro container-fluid d-flex justify-content-center">
         <div class="row d-flex ">
             <div class="col">
                 <!-- Heading -->
-                <h2 class="display-4 font-bold text-center blue-text  animated fadeInDown">MBSR
-                    <span class="white-text display-2">@</span>ISTC</h2>
-                <p>
-                    <br>
-                </p>
+                <h2 class="display-4 font-bold text-center blue-text  animated fadeInDown">MBSR<span class="white-text display-2">@</span>ISTC</h2>
+                <p><br></p>
                 <!-- Description -->
-                <h4 class="white-text"> Inserisci la tua email e il tuo codice per accedere al materiale del corso.</h4>
+                <h4 class="white-text"> Inserisci La tua email e il tuo codice per accedere al materiale del corso.</h4>
 
-                <p>
-                    <br>
-                </p>
+                <p><br></p>
 
                 <!-- Form login -->
                 <form class="animated fadeInUp" method="post" id="login_form" name="login_form" action="#" onsubmit="return submitForm();">
@@ -55,10 +50,9 @@
                         <i class="fa fa-user prefix grey-text"></i>
                         <input class="white-text" type="text" id="i_id" name="i_id" required placeholder="Inserisci il tuo codice personale">
                     </div>
-
+                    
                     <div class="text-center">
-                        <button class="btn btn-primary" type="submit" id="submit" onclick="return submitForm();">
-                            <i id="spinner" class="fa"></i> Login</button>
+                        <button class="btn btn-primary" type="submit" id="submit" onclick="return submitForm();"><i id="spinner" class="fa"></i> Login</button>
                     </div>
                 </form>
                 <!-- Form login -->
@@ -67,11 +61,33 @@
         </div>
     </div>
 
+    <!-- Hidden form for submit -->
+    <form method="post" id="action_form" name="action_form" action="#">
+        <input type="hidden" id="m_sent" name="m_sent" value="">
+        <input type="hidden" id="m_id" name="m_id" value="">
+        <input type="hidden" id="m_username" name="m_username" value="">
+        <input type="hidden" id="m_action" name="m_action" value="">
+        <input type="hidden" id="m_week" name="m_week" value="0">
+        <input type="hidden" id="m_day" name="m_day" value="0">
+        <input type="hidden" id="m_device" name="m_device" value="app">
+        <input type="hidden" id="m_date" name="m_date" value="">
+    </form>
+
+    <!-- Hidden button and text to log data -->
+    <div hidden>
+        <input type="text" id="log_text"/>
+        <button id="log_btn"></button>
+    </div>
+
     <script>
-        function checkStartingPage() {
-            if (checkLogin()) {
-                document.getElementById('i_username').value = window.localStorage.getItem('username');
-                document.getElementById('i_id').value = window.localStorage.getItem('id');
+        
+        function checkLogin() {
+            if (window.localStorage.getItem('newLogin') != null) {
+                if (window.localStorage.getItem('username') != null) {
+                    document.getElementById("i_id").value = window.localStorage.getItem("id");
+                    document.getElementById("i_username").value = window.localStorage.getItem("username");
+                    window.location.href = 'login.html';
+                }
             }
         }
 
@@ -82,7 +98,7 @@
             if (navigator.onLine) {
                 var form_data = new FormData(document.getElementById("login_form"));
                 $.ajax({
-                    url: "http://www.mindfulness-istc.online/php_scripts/login_app.php",
+                    url: "http://mbsr.x10host.com/php_scripts/login_app.php",
                     type: "POST",
                     data: form_data,
                     processData: false,  // tell jQuery not to process the data
@@ -97,7 +113,6 @@
                         d.setHours(20, 00, 00, 0);
                         window.localStorage.setItem('mbsr_week_1', d);
 
-                        // Get the next weeks from server
                         setTimeout(function () {
                             getWeek2();
                         }, 100);
@@ -116,7 +131,7 @@
         function getWeek2() {
             var form_data = new FormData(document.getElementById("login_form"));
             $.ajax({
-                url: "http://www.mindfulness-istc.online/php_scripts/getWeek2.php",
+                url: "http://mbsr.x10host.com/php_scripts/getWeek2.php",
                 type: "POST",
                 data: form_data,
                 processData: false,  // tell jQuery not to process the data
@@ -141,7 +156,7 @@
         function getWeek3() {
             var form_data = new FormData(document.getElementById("login_form"));
             $.ajax({
-                url: "http://www.mindfulness-istc.online/php_scripts/getWeek3.php",
+                url: "http://mbsr.x10host.com/php_scripts/getWeek3.php",
                 type: "POST",
                 data: form_data,
                 processData: false,  // tell jQuery not to process the data
@@ -162,11 +177,11 @@
             });
             return false;
         }
-
+    
         function getWeek4() {
             var form_data = new FormData(document.getElementById("login_form"));
             $.ajax({
-                url: "http://www.mindfulness-istc.online/php_scripts/getWeek4.php",
+                url: "http://mbsr.x10host.com/php_scripts/getWeek4.php",
                 type: "POST",
                 data: form_data,
                 processData: false,  // tell jQuery not to process the data
@@ -191,7 +206,7 @@
         function getWeek5() {
             var form_data = new FormData(document.getElementById("login_form"));
             $.ajax({
-                url: "http://www.mindfulness-istc.online/php_scripts/getWeek5.php",
+                url: "http://mbsr.x10host.com/php_scripts/getWeek5.php",
                 type: "POST",
                 data: form_data,
                 processData: false,  // tell jQuery not to process the data
@@ -216,7 +231,7 @@
         function getWeek6() {
             var form_data = new FormData(document.getElementById("login_form"));
             $.ajax({
-                url: "http://www.mindfulness-istc.online/php_scripts/getWeek6.php",
+                url: "http://mbsr.x10host.com/php_scripts/getWeek6.php",
                 type: "POST",
                 data: form_data,
                 processData: false,  // tell jQuery not to process the data
@@ -241,7 +256,7 @@
         function getWeek7() {
             var form_data = new FormData(document.getElementById("login_form"));
             $.ajax({
-                url: "http://www.mindfulness-istc.online/php_scripts/getWeek7.php",
+                url: "http://mbsr.x10host.com/php_scripts/getWeek7.php",
                 type: "POST",
                 data: form_data,
                 processData: false,  // tell jQuery not to process the data
@@ -266,7 +281,7 @@
         function getWeek8() {
             var form_data = new FormData(document.getElementById("login_form"));
             $.ajax({
-                url: "http://www.mindfulness-istc.online/php_scripts/getWeek8.php",
+                url: "http://mbsr.x10host.com/php_scripts/getWeek8.php",
                 type: "POST",
                 data: form_data,
                 processData: false,  // tell jQuery not to process the data
@@ -281,7 +296,7 @@
                         // window.alert(window.localStorage.getItem('mbsr_week_1') + window.localStorage.getItem('mbsr_week_2') + window.localStorage.getItem('mbsr_week_3') + window.localStorage.getItem('mbsr_week_4') + window.localStorage.getItem('mbsr_week_5') + window.localStorage.getItem('mbsr_week_6') + window.localStorage.getItem('mbsr_week_7') + window.localStorage.getItem('mbsr_week_8'));
 
                         // Go to weeks page
-                        window.location.href = 'login.html';
+                        window.location.href = 'loginFirst.html';
                     }, 100);
 
                 } else {    //data-send fails
@@ -290,7 +305,7 @@
             });
             return false;
         }
-
+    
     </script>
 
     <script type="text/javascript" src="cordova.js"></script>

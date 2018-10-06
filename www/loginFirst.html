@@ -164,6 +164,9 @@
             this.setLogText();
             if (document.getElementById("m_sent").value == "0") { document.getElementById("log_btn").click(); }
 
+            // Save the first login with the new version of the app
+            window.localStorage.setItem("newLogin", 1);
+
             // Go to weeks page
             window.location.href = 'removeLog.html';
         }

@@ -1,0 +1,81 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <title>MBSR remove login</title>
+    <meta name="description" content="MBSR remove login page">
+    <meta name="author" content="MBSR@ISTC">
+
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="js/tools.js"></script>;
+
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="js/txtlog.js"></script>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/font-awesome.css">
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Material Design Bootstrap -->
+    <link href="css/mdb.min.css" rel="stylesheet">
+
+    <!-- Your custom styles (optional) -->
+    <link href="css/style.css" rel="stylesheet">
+
+</head>
+
+<body>
+    <div class="intro container-fluid d-flex justify-content-center">
+        <div class="row d-flex ">
+
+            <div class="col text-center">
+                <!-- Heading -->
+                <p></p><i class="white-text fa fa-circle-o-notch fa-spin fa-3x fa-fw"></i><br><h4 id="textH" class="white-text my-4">Remove log file...</h4>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('deviceready', onDeviceReady, false);
+        function onDeviceReady() {
+            if (navigator.onLine) {
+                window.resolveLocalFileSystemURL(cordova.file.externalApplicationStorageDirectory, function (dir) {
+                    dir.getFile("log.txt", { create: true }, function (fileEntry) {
+                        fileEntry.remove(function () {
+                            // The file has been removed succesfully
+                            //window.alert("File removed!");
+                        }, function (error) {
+                            // Error deleting the file
+                            //window.alert("File not removed! ERR " + error);
+                        }, function () {
+                            // The file doesn't exist
+                            //window.alert("File doesn't exist!");
+                        })
+                    });
+                });
+                setTimeout(function () {
+                    loginFunction();
+                }, 300);
+            } else {
+                setTimeout(function () {
+                    loginFunction();
+                }, 300);
+            }
+        }
+
+        function loginFunction() {
+            // Go to weeks page
+            window.location.href = 'weeks.html';
+        }
+    </script>
+</body>
+
+</html>

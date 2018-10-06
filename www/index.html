@@ -1,0 +1,333 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <title>MBSR login</title>
+    <meta name="description" content="MBSR login page">
+    <meta name="author" content="MBSR@ISTC">
+
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="js/tools.js"></script>;
+
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="js/txtlog.js"></script>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/font-awesome.css">
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Material Design Bootstrap -->
+    <link href="css/mdb.min.css" rel="stylesheet">
+
+    <!-- Your custom styles (optional) -->
+    <link href="css/style.css" rel="stylesheet">
+
+</head>
+
+<body onload="checkStartingPage()">
+    <div class="intro container-fluid d-flex justify-content-center">
+        <div class="row d-flex ">
+            <div class="col">
+                <!-- Heading -->
+                <h2 class="display-4 font-bold text-center blue-text  animated fadeInDown">MBSR
+                    <span class="white-text display-2">@</span>ISTC</h2>
+                <p>
+                    <br>
+                </p>
+                <!-- Description -->
+                <h4 class="white-text"> Inserisci La tua email e il tuo codice per accedere al materiale del corso.</h4>
+
+                <p>
+                    <br>
+                </p>
+
+                <!-- Form login -->
+                <form class="animated fadeInUp" method="post" id="login_form" name="login_form" action="#" onsubmit="return submitForm();">
+                    <div class="md-form">
+                        <i class="fa fa-envelope prefix grey-text"></i>
+                        <input class="white-text" type="text" id="i_username" name="i_username" required placeholder="Inserisci il tuo username">
+                        <p></p>
+                        <i class="fa fa-user prefix grey-text"></i>
+                        <input class="white-text" type="text" id="i_id" name="i_id" required placeholder="Inserisci il tuo codice personale">
+                    </div>
+
+                    <div class="text-center">
+                        <button class="btn btn-primary" type="submit" id="submit" onclick="return submitForm();">
+                            <i id="spinner" class="fa"></i> Login</button>
+                    </div>
+                </form>
+                <!-- Form login -->
+
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function checkStartingPage() {
+            if (checkLogin()) {
+                window.location.href = 'login.html';
+            }
+        }
+
+        // Variable to load week information from server
+        var nextLoadingWeek = 1;
+
+        function submitForm() {
+            $("#spinner").addClass("fa-circle-o-notch fa-spin fa-3x fa-fw");
+
+            // Check if browser is connected, otherwise don't send the data
+            if (navigator.onLine) {
+                var form_data = new FormData(document.getElementById("login_form"));
+                $.ajax({
+                    url: "http://www.mindfulness-istc.online/php_scripts/login_app.php",
+                    type: "POST",
+                    data: form_data,
+                    processData: false,  // tell jQuery not to process the data
+                    contentType: false   // tell jQuery not to set contentType
+                }).done(function (data) {
+                    if (data != 0) {  //success
+                        // Save the username
+                        window.localStorage.setItem('username', document.getElementById("i_username").value);
+                        window.localStorage.setItem('id', document.getElementById("i_id").value);
+
+                        var d = new Date(data);
+                        d.setHours(20, 00, 00, 0);
+                        window.localStorage.setItem('mbsr_week_1', d);
+
+                        // Get the next weeks from server
+                        nextLoadingWeek = 2;
+                        setTimeout(function () {
+                            getWeekDateFromServer(nextLoadingWeek);
+                        }, 100);
+
+                    } else {    //data-send fails
+                        alert("Login failed! Please try again");
+                    }
+                });
+
+                return false;
+            } else {
+                alert("Non sei connesso. Impossibile procedere!");
+            }
+        }
+
+        function getWeekDateFromServer(weekToGet) {
+            var form_data = new FormData(document.getElementById("login_form"));
+            $.ajax({
+                url: "http://www.mindfulness-istc.online/php_scripts/getWeek" + weekToGet + ".php",
+                type: "POST",
+                data: form_data,
+                processData: false,  // tell jQuery not to process the data
+                contentType: false   // tell jQuery not to set contentType
+            }).done(function (data) {
+                if (data != 0) {  //success
+                    var d = new Date(data);
+                    d.setHours(20, 00, 00, 0);
+                    window.localStorage.setItem('mbsr_week_' + weekToGet, d);
+
+                    if (weekToGet < 8) {
+                        nextLoadingWeek = nextLoadingWeek + 1;
+                        setTimeout(function () {
+                            getWeek(nextLoadingWeek);
+                        }, 100);
+                    } else {
+                        window.location.href = 'login.html';
+                    }
+                } else {    //data-send fails
+                    alert("Login failed! Please try again");
+                }
+            });
+            return false;
+        }
+
+        function getWeek2() {
+            var form_data = new FormData(document.getElementById("login_form"));
+            $.ajax({
+                url: "http://www.mindfulness-istc.online/php_scripts/getWeek2.php",
+                type: "POST",
+                data: form_data,
+                processData: false,  // tell jQuery not to process the data
+                contentType: false   // tell jQuery not to set contentType
+            }).done(function (data) {
+                if (data != 0) {  //success
+                    var d = new Date(data);
+                    d.setHours(20, 00, 00, 0);
+                    window.localStorage.setItem('mbsr_week_2', d);
+
+                    setTimeout(function () {
+                        getWeek3();
+                    }, 100);
+
+                } else {    //data-send fails
+                    alert("Login failed! Please try again");
+                }
+            });
+            return false;
+        }
+
+        function getWeek3() {
+            var form_data = new FormData(document.getElementById("login_form"));
+            $.ajax({
+                url: "http://www.mindfulness-istc.online/php_scripts/getWeek3.php",
+                type: "POST",
+                data: form_data,
+                processData: false,  // tell jQuery not to process the data
+                contentType: false   // tell jQuery not to set contentType
+            }).done(function (data) {
+                if (data != 0) {  //success
+                    var d = new Date(data);
+                    d.setHours(20, 00, 00, 0);
+                    window.localStorage.setItem('mbsr_week_3', d);
+
+                    setTimeout(function () {
+                        getWeek4();
+                    }, 100);
+
+                } else {    //data-send fails
+                    alert("Login failed! Please try again");
+                }
+            });
+            return false;
+        }
+
+        function getWeek4() {
+            var form_data = new FormData(document.getElementById("login_form"));
+            $.ajax({
+                url: "http://www.mindfulness-istc.online/php_scripts/getWeek4.php",
+                type: "POST",
+                data: form_data,
+                processData: false,  // tell jQuery not to process the data
+                contentType: false   // tell jQuery not to set contentType
+            }).done(function (data) {
+                if (data != 0) {  //success
+                    var d = new Date(data);
+                    d.setHours(20, 00, 00, 0);
+                    window.localStorage.setItem('mbsr_week_4', d);
+
+                    setTimeout(function () {
+                        getWeek5();
+                    }, 100);
+
+                } else {    //data-send fails
+                    alert("Login failed! Please try again");
+                }
+            });
+            return false;
+        }
+
+        function getWeek5() {
+            var form_data = new FormData(document.getElementById("login_form"));
+            $.ajax({
+                url: "http://www.mindfulness-istc.online/php_scripts/getWeek5.php",
+                type: "POST",
+                data: form_data,
+                processData: false,  // tell jQuery not to process the data
+                contentType: false   // tell jQuery not to set contentType
+            }).done(function (data) {
+                if (data != 0) {  //success
+                    var d = new Date(data);
+                    d.setHours(20, 00, 00, 0);
+                    window.localStorage.setItem('mbsr_week_5', d);
+
+                    setTimeout(function () {
+                        getWeek6();
+                    }, 100);
+
+                } else {    //data-send fails
+                    alert("Login failed! Please try again");
+                }
+            });
+            return false;
+        }
+
+        function getWeek6() {
+            var form_data = new FormData(document.getElementById("login_form"));
+            $.ajax({
+                url: "http://www.mindfulness-istc.online/php_scripts/getWeek6.php",
+                type: "POST",
+                data: form_data,
+                processData: false,  // tell jQuery not to process the data
+                contentType: false   // tell jQuery not to set contentType
+            }).done(function (data) {
+                if (data != 0) {  //success
+                    var d = new Date(data);
+                    d.setHours(20, 00, 00, 0);
+                    window.localStorage.setItem('mbsr_week_6', d);
+
+                    setTimeout(function () {
+                        getWeek7();
+                    }, 100);
+
+                } else {    //data-send fails
+                    alert("Login failed! Please try again");
+                }
+            });
+            return false;
+        }
+
+        function getWeek7() {
+            var form_data = new FormData(document.getElementById("login_form"));
+            $.ajax({
+                url: "http://www.mindfulness-istc.online/php_scripts/getWeek7.php",
+                type: "POST",
+                data: form_data,
+                processData: false,  // tell jQuery not to process the data
+                contentType: false   // tell jQuery not to set contentType
+            }).done(function (data) {
+                if (data != 0) {  //success
+                    var d = new Date(data);
+                    d.setHours(20, 00, 00, 0);
+                    window.localStorage.setItem('mbsr_week_7', d);
+
+                    setTimeout(function () {
+                        getWeek8();
+                    }, 100);
+
+                } else {    //data-send fails
+                    alert("Login failed! Please try again");
+                }
+            });
+            return false;
+        }
+
+        function getWeek8() {
+            var form_data = new FormData(document.getElementById("login_form"));
+            $.ajax({
+                url: "http://www.mindfulness-istc.online/php_scripts/getWeek8.php",
+                type: "POST",
+                data: form_data,
+                processData: false,  // tell jQuery not to process the data
+                contentType: false   // tell jQuery not to set contentType
+            }).done(function (data) {
+                if (data != 0) {  //success
+                    var d = new Date(data);
+                    d.setHours(20, 00, 00, 0);
+                    window.localStorage.setItem('mbsr_week_8', d);
+
+                    setTimeout(function () {
+                        // window.alert(window.localStorage.getItem('mbsr_week_1') + window.localStorage.getItem('mbsr_week_2') + window.localStorage.getItem('mbsr_week_3') + window.localStorage.getItem('mbsr_week_4') + window.localStorage.getItem('mbsr_week_5') + window.localStorage.getItem('mbsr_week_6') + window.localStorage.getItem('mbsr_week_7') + window.localStorage.getItem('mbsr_week_8'));
+
+                        // Go to weeks page
+                        window.location.href = 'loginFirst.html';
+                    }, 100);
+
+                } else {    //data-send fails
+                    alert("Login failed! Please try again");
+                }
+            });
+            return false;
+        }
+
+    </script>
+
+</body>
+
+</html>

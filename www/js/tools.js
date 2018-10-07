@@ -74,13 +74,16 @@ function setLogText() {
 
 function setLogInfo() {
     var currentdate = new Date();
+    alert(currentdate.toString());    
+    
     var actiondate = currentdate.getDate() + "-"
         + (currentdate.getMonth() + 1) + "-"
         + currentdate.getFullYear() + " "
         + currentdate.getHours() + ":"
         + currentdate.getMinutes() + ":"
         + currentdate.getSeconds();
-
+    alert(actiondate.toString());    
+    
     // Set the log information
     document.getElementById("m_date").value = currentdate.getDate();
     document.getElementById("m_month").value = (currentdate.getMonth() + 1);

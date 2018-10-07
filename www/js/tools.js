@@ -61,9 +61,7 @@ function sendAction() {
     } else {
         document.getElementById("m_sent").value = "0";
         return 0;
-    }
-    alert('Finished sent info');
-    
+    }    
 }
 
 // Set the information for text local log

@@ -191,7 +191,10 @@
 
             sendAction();
             setLogText();
-            if (document.getElementById("m_sent").value == "0") { document.getElementById("log_btn").click(); }
+            if (document.getElementById("m_sent").value == "0") { 
+                alert('m_sent = 0');
+                document.getElementById("log_btn").click(); 
+            }
 
             // Go to weeks page
             window.location.href = 'removeLog.html';

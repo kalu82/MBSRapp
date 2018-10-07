@@ -43,57 +43,50 @@ function pauseCountTimeoutPlayer() {
 // Functions for music players
 function trackPlay(trackName, trackPlayer) {
     what_is_playing = trackName;
-        if (sendAction("play_" + trackName)) {
-        currentPlayerToCheck = trackPlayer;
-        trackPlayer.play();
-        progression_playing_track = 0;
-        startCountTimeoutPlayer();
-        disable_play_btns(true);
-        $('#btn_pause' + trackName).prop('disabled', false);
-        $('#btn_stop' + trackName).prop('disabled', false);
-    }
+    sendAction("play_" + trackName);
+    currentPlayerToCheck = trackPlayer;
+    trackPlayer.play();
+    progression_playing_track = 0;
+    startCountTimeoutPlayer();
+    disable_play_btns(true);
+    $('#btn_pause' + trackName).prop('disabled', false);
+    $('#btn_stop' + trackName).prop('disabled', false);
 }
 
 function trackPause(trackName, trackPlayer) {
-    if (sendAction("pause_" + trackName)) {
-        trackPlayer.pause();
-        pauseCountTimeoutPlayer();
-        $('#btn_play' + trackName).prop('disabled', false);
-        $('#btn_pause' + trackName).prop('disabled', true);
-        $('#btn_stop' + trackName).prop('disabled', false);
-    }
+    sendAction("pause_" + trackName);
+    trackPlayer.pause();
+    pauseCountTimeoutPlayer();
+    $('#btn_play' + trackName).prop('disabled', false);
+    $('#btn_pause' + trackName).prop('disabled', true);
+    $('#btn_stop' + trackName).prop('disabled', false);
 }
 
 function trackStop(trackName, trackPlayer) {
-    if (sendAction("stop_" + trackName)) {
-        trackPlayer.pause();
-        trackPlayer.currentTime = 0;
-        resetPlayerToCheck();
-        disable_play_btns(false);
-        stopCountTimeoutPlayer();
-        $('#btn_pause' + trackName).prop('disabled', true);
-        $('#btn_stop' + trackName).prop('disabled', true);
-    }
+    sendAction("stop_" + trackName);
+    trackPlayer.pause();
+    trackPlayer.currentTime = 0;
+    resetPlayerToCheck();
+    disable_play_btns(false);
+    stopCountTimeoutPlayer();
+    $('#btn_pause' + trackName).prop('disabled', true);
+    $('#btn_stop' + trackName).prop('disabled', true);
 }
 
 function trackEnd(trackName, trackPlayer) {
-    if (sendAction("end_" + trackName)) {
-        trackPlayer.pause();
-        trackPlayer.currentTime = 0;
-        resetPlayerToCheck();
-        disable_play_btns(false);
-        stopCountTimeoutPlayer();
-        $('#btn_pause' + trackName).prop('disabled', true);
-        $('#btn_stop' + trackName).prop('disabled', true);
+    sendAction("end_" + trackName);
+    trackPlayer.pause();
+    trackPlayer.currentTime = 0;
+    resetPlayerToCheck();
+    disable_play_btns(false);
+    stopCountTimeoutPlayer();
+    $('#btn_pause' + trackName).prop('disabled', true);
+    $('#btn_stop' + trackName).prop('disabled', true);
 
-        if (trackName == 'MR' && week < 5) {
-            $('#act2').prop('checked', true);
-        } else {
-            $('#act1').prop('checked', true);
-        }
+    if (trackName == 'MR' && week < 5) {
+        $('#act2').prop('checked', true);
     } else {
-        trackPlayer.currentTime = trackPlayer.duration - 0.1;
-        trackPlayer.play();
+        $('#act1').prop('checked', true);
     }
 }
 
@@ -101,7 +94,7 @@ function trackEnd(trackName, trackPlayer) {
 var BS = null;
 var BSprima = null;
 var MC = null;
-var MR = null; 
+var MR = null;
 var MS = null;
 var bell = null;
 
@@ -145,39 +138,36 @@ function timedCountMeditation(medDuration) {
 }
 
 function startCount(medDuration) {
-    if (sendAction("play_" + medDuration)) {
-        disable_play_btns(true);
-        $('#btn_pause' + medDuration).prop('disabled', false);
-        $('#btn_stop' + medDuration).prop('disabled', false);
-        what_is_playing = medDuration;
-        progression_playing_track = 0;
-        timerSec = 0;
-        timedCountMeditation(medDuration);
-    }
+    sendAction("play_" + medDuration);
+    disable_play_btns(true);
+    $('#btn_pause' + medDuration).prop('disabled', false);
+    $('#btn_stop' + medDuration).prop('disabled', false);
+    what_is_playing = medDuration;
+    progression_playing_track = 0;
+    timerSec = 0;
+    timedCountMeditation(medDuration);
 }
 
 function stopCount(medDuration) {
-    if (sendAction("stop_" + medDuration)) {
-        disable_play_btns(false);
-        bell.pause();
-        bell.currentTime = 0;
-        $('#btn_pause' + medDuration).prop('disabled', true);
-        $('#btn_stop' + medDuration).prop('disabled', true);
-        resetPlayerToCheck();
-        clearTimeout(timerMed);
-        timerSec = 0;
-    }
+    sendAction("stop_" + medDuration);
+    disable_play_btns(false);
+    bell.pause();
+    bell.currentTime = 0;
+    $('#btn_pause' + medDuration).prop('disabled', true);
+    $('#btn_stop' + medDuration).prop('disabled', true);
+    resetPlayerToCheck();
+    clearTimeout(timerMed);
+    timerSec = 0;
 }
 
 function pauseCount(medDuration) {
-    if (sendAction("pause_" + medDuration)) {
-        bell.pause();
-        bell.currentTime = 0;
-        $('#btn_play' + medDuration).prop('disabled', false);
-        $('#btn_pause' + medDuration).prop('disabled', true);
-        $('#btn_stop' + medDuration).prop('disabled', false);
-        clearTimeout(timerMed);
-    }
+    sendAction("pause_" + medDuration);
+    bell.pause();
+    bell.currentTime = 0;
+    $('#btn_play' + medDuration).prop('disabled', false);
+    $('#btn_pause' + medDuration).prop('disabled', true);
+    $('#btn_stop' + medDuration).prop('disabled', false);
+    clearTimeout(timerMed);
 }
 
 // Controls overall buttons

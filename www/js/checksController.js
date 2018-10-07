@@ -16,20 +16,20 @@ function check_boxes() {
 function check_actweek(numact) {
     if (document.getElementById('actw' + numact).checked) {
         window.localStorage.setItem('week' + week + '_actw' + numact + '_done', '1');
-        this.sendAction('do_w' + numact);
+        sendAction('do_w' + numact);
     } else {
         window.localStorage.setItem('week' + week + '_actw' + numact + '_done', '0');
-        this.sendAction('undo_w' + numact);
+        sendAction('undo_w' + numact);
     }
 }
 
 function check_act(numact) {
     if (document.getElementById('act' + numact).checked) {
         window.localStorage.setItem('week' + week + '_act' + i + '_done','1');
-        this.sendAction('do' + numact);
+        sendAction('do' + numact);
         $('#row_act' + numact).addClass('animated pulse');
     } else {
         window.localStorage.setItem('week' + week + '_act' + i + '_done','0');
-        this.sendAction('undo' + numact);
+        sendAction('undo' + numact);
     }
 }

@@ -32,6 +32,8 @@ function functionLogout() {
 }
 
 function sendAction() {
+    alert('Sending info');
+    
     // Check if browser is connected, otherwise don't send the data
     if (navigator.onLine) {
         this.setLogInfo();
@@ -68,6 +70,7 @@ function setLogText() {
 }
 
 function setLogInfo() {
+    alert('Setting log info');
     var currentdate = new Date();
     var actiondate = currentdate.getDate() + "-"
         + (currentdate.getMonth() + 1) + "-"

@@ -75,14 +75,14 @@ function sendAction(act_to_send) {
         });
         document.getElementById("m_sent").value = "1";        
 
-        // Sendl information also to a backup server
-        $.ajax({
-            url: "http://mbsr.x10host.com/php_scripts/sendAction.php",
-            type: "POST",
-            data: form_data,
-            processData: false,  // tell jQuery not to process the data
-            contentType: false   // tell jQuery not to set contentType
-        });
+        // // Sendl information also to a backup server
+        // $.ajax({
+        //     url: "http://mbsr.x10host.com/php_scripts/sendAction.php",
+        //     type: "POST",
+        //     data: form_data,
+        //     processData: false,  // tell jQuery not to process the data
+        //     contentType: false   // tell jQuery not to set contentType
+        // });
 
         return 1;
     } else {

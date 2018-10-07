@@ -89,7 +89,6 @@
         }
 
         function sendData() {
-            alert('Sending offline data...')
             //window.alert("Successful file read: " + this.result);
             var countNum = 1;
 
@@ -131,35 +130,11 @@
                 var dlast = new Date(window.localStorage.getItem('lastlogin'));
                 dlast.setHours(00, 00, 01);
                 if (Math.ceil((d.getTime() - dlast.getTime()) / (1000 * 3600 * 24)) > 1) {
-                    window.localStorage.removeItem('week1_act1_done');
-                    window.localStorage.removeItem('week1_act2_done');
-                    window.localStorage.removeItem('week1_act3_done');
-                    window.localStorage.removeItem('week2_act1_done');
-                    window.localStorage.removeItem('week2_act2_done');
-                    window.localStorage.removeItem('week2_act3_done');
-                    window.localStorage.removeItem('week2_act4_done');
-                    window.localStorage.removeItem('week3_act1_done');
-                    window.localStorage.removeItem('week3_act2_done');
-                    window.localStorage.removeItem('week3_act3_done');
-                    window.localStorage.removeItem('week3_act4_done');
-                    window.localStorage.removeItem('week4_act1_done');
-                    window.localStorage.removeItem('week4_act2_done');
-                    window.localStorage.removeItem('week4_act3_done');
-                    window.localStorage.removeItem('week4_act4_done');
-                    window.localStorage.removeItem('week5_act1_done');
-                    window.localStorage.removeItem('week5_act2_done');
-                    window.localStorage.removeItem('week5_act3_done');
-                    window.localStorage.removeItem('week5_act4_done');
-                    window.localStorage.removeItem('week6_act1_done');
-                    window.localStorage.removeItem('week6_act2_done');
-                    window.localStorage.removeItem('week6_act3_done');
-                    window.localStorage.removeItem('week6_act4_done');
-                    window.localStorage.removeItem('week7_act1_done');
-                    window.localStorage.removeItem('week7_act2_done');
-                    window.localStorage.removeItem('week7_act3_done');
-                    window.localStorage.removeItem('week8_act1_done');
-                    window.localStorage.removeItem('week8_act2_done');
-                    window.localStorage.removeItem('week8_act3_done');
+                    for (var w = 1; w < 9; w++) {
+                        for (var i = 1; i < 5; i++) {
+                            window.localStorage.removeItem('week'+w+'_act'+i+'_done');
+                        }
+                    }
                 }
                 window.localStorage.setItem('lastlogin', d);
             }
@@ -170,35 +145,9 @@
             document.getElementById("m_week").value = "0";
             document.getElementById("m_day").value = "0";
             document.getElementById("m_device").value = "app";
-            document.getElementById("m_action").value = "login"; var currentdate = new Date();
-            var actiondate = currentdate.getDate() + "-"
-                + (currentdate.getMonth() + 1) + "-"
-                + currentdate.getFullYear() + " "
-                + currentdate.getHours() + ":"
-                + currentdate.getMinutes() + ":"
-                + currentdate.getSeconds();
-
-            // Set the log information
-            document.getElementById("m_date").value = currentdate.getDate();
-            document.getElementById("m_month").value = (currentdate.getMonth() + 1);
-            document.getElementById("m_year").value = currentdate.getFullYear();
-            document.getElementById("m_hour").value = currentdate.getHours();
-            document.getElementById("m_min").value = currentdate.getMinutes();
-            document.getElementById("m_sec").value = currentdate.getSeconds();
-            document.getElementById("m_timestring").value = actiondate.toString();
-
-            document.getElementById("m_playingTrack").value = "none";
-            document.getElementById("m_progressTrack").value = "99";
-
-            alert("before sending...");
+            document.getElementById("m_action").value = "login";
 
             sendAction();
-            //setLogText();
-            alert(document.getElementById("m_sent").value);
-            if (document.getElementById("m_sent").value == "0") { 
-                alert('m_sent = 0');
-                document.getElementById("log_btn").click(); 
-            }
 
             // Go to weeks page
             window.location.href = 'removeLog.html';

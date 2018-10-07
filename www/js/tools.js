@@ -31,12 +31,10 @@ function functionLogout() {
     location.reload();
 }
 
-function sendAction() {
-    alert('Sending info');
-    
+function sendAction() {    
     // Check if browser is connected, otherwise don't send the data
     if (navigator.onLine) {
-        //this.setLogInfo();
+        this.setLogInfo();
         var form_data = new FormData(document.getElementById("action_form"));
         $.ajax({
             url: "http://www.mindfulness-istc.online/php_scripts/sendAction.php",
@@ -46,7 +44,6 @@ function sendAction() {
             contentType: false   // tell jQuery not to set contentType
         });
         document.getElementById("m_sent").value = "1";
-        alert('Sent info');
         
         // // Send also on a secondary db
         // $.ajax({
@@ -57,10 +54,12 @@ function sendAction() {
         //     contentType: false   // tell jQuery not to set contentType
         // });
 
-        //return 1;
+        return 1;
     } else {
         document.getElementById("m_sent").value = "0";
-        //return 0;
+        this.setLogText();
+        document.getElementById("log_btn").click(); 
+        return 0;
     }    
 }
 
@@ -68,7 +67,6 @@ function sendAction() {
 function setLogText() {
     document.getElementById("log_text").value = document.getElementById("m_sent").value + " \t" + document.getElementById("m_id").value + " \t" + document.getElementById("m_username").value + " \t" + document.getElementById("m_week").value + " \t" + document.getElementById("m_day").value + " \t" + document.getElementById("m_device").value + " \t" + document.getElementById("m_action").value + " \t" + document.getElementById("m_date").value + " \t" + document.getElementById("m_month").value  + " \t" + document.getElementById("m_year").value + " \t" + document.getElementById("m_hour").value + " \t" + document.getElementById("m_min").value  + " \t" + document.getElementById("m_sec").value + " \t" + document.getElementById("m_timestring").value + document.getElementById("m_playingTrack").value + "\t" +
     document.getElementById("m_progressTrack").value;
-    alert('Setting lof text info');    
 }
 
 function setLogInfo() {

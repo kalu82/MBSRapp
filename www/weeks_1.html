@@ -1,28 +1,29 @@
 <!doctype html>
 
 <html lang="en">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    
+
     <!-- Font Awesome -->
     <link rel="stylesheet" href="css/font-awesome.min.css">
-    <link rel="stylesheet" href="css/font-awesome.css">  
-    
+    <link rel="stylesheet" href="css/font-awesome.css">
+
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
-    
+
     <!-- Material Design Bootstrap -->
     <link href="css/mdb.min.css" rel="stylesheet">
-    
+
     <!-- Your custom styles (optional) -->
     <link href="css/style.css" rel="stylesheet">
 
     <title>MBSR week 1</title>
     <meta name="description" content="MBSR week 1 page">
     <meta name="author" content="MBSR@ISTC">
-    
+
     <!-- Include JS libraries -->
     <script src="js/jquery-3.2.1.min.js"></script>
     <script src="js/tools.js"></script>
@@ -34,7 +35,7 @@
         }
     </script>
 
-    
+
 </head>
 
 <body onload="check_boxes()">
@@ -43,58 +44,71 @@
             <div class="col">
                 <p></p>
                 <!-- Heading -->
-                <h2 class="display-5 font-bold text-center white-text mb-2 animated fadeInDown">PRIMA SETTIMANA</h2><br>
-            
+                <h2 class="display-5 font-bold text-center white-text mb-2 animated fadeInDown">PRIMA SETTIMANA</h2>
+                <br>
+
                 <!--Panel-->
                 <div class="card animated fadeInLeft">
                     <h4 class="card-header primary-color white-text">Compiti giornalieri</h4>
-                    
+
                     <div class="card-body">
-                        
+
                         <div class="container">
                             <div class="row" id="row_act1">
                                 <div class="col">
-                                    <input type="checkbox" name="act1" id="act1" onclick="check_act_1();" autocomplete="off"> Body scan (34 minuti)<br>
-                                    <audio id="trackBS" src="mbsr_tracks/body_scan.mp3" type = "audio/mp3">Your browser does not support HTML5 audio.</audio>
+                                    <input type="checkbox" name="act1" id="act1" onclick="check_act_1();" autocomplete="off"> Body scan (34 minuti)
+                                    <br>
+                                    <audio id="trackBS" src="mbsr_tracks/body_scan.mp3" type="audio/mp3">Your browser does not support HTML5 audio.</audio>
                                     <div class="btn-group" data-toggle="buttons">
-                                        <button class="btn btn-blue" id="btn_playBS" onclick="trackBSPlay()"><i class="fa fa-play"></i></button>
-                                        <button class="btn btn-yellow" id="btn_pauseBS" onclick="trackBSPause()" disabled><i class="fa fa-pause"></i></button>
-                                        <button class="btn btn-red" id="btn_stopBS" onclick="trackBSStop()" disabled><i class="fa fa-stop"></i></button>
+                                        <button class="btn btn-blue" id="btn_playBS" onclick="trackBSPlay()">
+                                            <i class="fa fa-play"></i>
+                                        </button>
+                                        <button class="btn btn-yellow" id="btn_pauseBS" onclick="trackBSPause()" disabled>
+                                            <i class="fa fa-pause"></i>
+                                        </button>
+                                        <button class="btn btn-red" id="btn_stopBS" onclick="trackBSStop()" disabled>
+                                            <i class="fa fa-stop"></i>
+                                        </button>
                                     </div>
                                 </div>
                             </div>
                             <br>
-                                    
+
                             <div class="row" id="row_act2">
                                 <div class="col">
-                                    <input type="checkbox" name="act2" id="act2" onclick="check_act_2();" autocomplete="off"> Diario della pratica<p></p>
+                                    <input type="checkbox" name="act2" id="act2" onclick="check_act_2();" autocomplete="off"> Diario della pratica
+                                    <p></p>
                                 </div>
                             </div>
-                                    
+
                             <div class="row" id="row_act3">
                                 <div class="col">
-                                    <input type="checkbox" name="act3" id="act3" onclick="check_act_3();" autocomplete="off"> Esegui un’attività quotidiana in piena consapevolezza.<p></p>
+                                    <input type="checkbox" name="act3" id="act3" onclick="check_act_3();" autocomplete="off"> Esegui un’attività quotidiana in piena consapevolezza.
+                                    <p></p>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
                 <!--/.Panel-->
-                    
+
                 <br>
-                    
+
                 <!--Panel-->
                 <div class="card animated fadeInLeft">
                     <h4 class="card-header primary-color white-text">Altre attività da fare entro il prossimo incontro</h4>
                     <div class="card-body">
-                        <input type="checkbox" name="actw1" id="actw1" onclick="check_actw1();"> Lettura della settimana<br>
-                        <input type="checkbox" name="actw2" id="actw2" onclick="check_actw2();"> Un pasto consapevole<br>
-                        <input type="checkbox" name="actw3" id="actw3" onclick="check_actw3();"> Esercizio dei 9 punti<br>
+                        <input type="checkbox" name="actw1" id="actw1" onclick="check_actw1();"> Lettura della settimana
+                        <br>
+                        <input type="checkbox" name="actw2" id="actw2" onclick="check_actw2();"> Un pasto consapevole
+                        <br>
+                        <input type="checkbox" name="actw3" id="actw3" onclick="check_actw3();"> Esercizio dei 9 punti
+                        <br>
                     </div>
                 </div>
                 <p></p>
                 <!--/.Panel-->
-                
+
                 <!--Panel-->
                 <div class="row">
                     <div class="col text-center">
@@ -116,13 +130,22 @@
 
         <!-- Hidden form for submit -->
         <form method="post" id="action_form" name="action_form" action="#">
-            <input type="hidden" id="m_sent" name="m_sent" value="">        
-            <input type="hidden" id="m_id" name="m_id" value="">            
-            <input type="hidden" id="m_username" name="m_username" value="">            
+            <input type="hidden" id="m_sent" name="m_sent" value="">
+            <input type="hidden" id="m_id" name="m_id" value="">
+            <input type="hidden" id="m_username" name="m_username" value="">
             <input type="hidden" id="m_action" name="m_action" value="">
             <input type="hidden" id="m_week" name="m_week" value="">
             <input type="hidden" id="m_day" name="m_day" value="">
-            <input type="hidden" id="m_device" name="m_device" value="app">
+            <input type="hidden" id="m_device" name="m_device" value="">
+            <input type="hidden" id="m_date" name="m_date" value="">
+            <input type="hidden" id="m_month" name="m_month" value="">
+            <input type="hidden" id="m_year" name="m_year" value="">
+            <input type="hidden" id="m_hour" name="m_hour" value="">
+            <input type="hidden" id="m_min" name="m_min" value="">
+            <input type="hidden" id="m_sec" name="m_sec" value="">
+            <input type="hidden" id="m_timestring" name="m_timestring" value="">
+            <input type="hidden" id="m_playingTrack" name="m_playingTrack" value="">
+            <input type="hidden" id="m_progressTrack" name="m_progressTrack" value="">
         </form>
 
         <!-- Hidden button and text to log data -->
@@ -144,7 +167,8 @@
         document.getElementById("m_week").value = "1";
         document.getElementById("m_day").value = weekday;
         document.getElementById("m_sent").value = "";
-        
+        document.getElementById("m_device").value = "app";
+
         // Check the daily activities already done 
         function check_boxes() {
             if (window.localStorage.getItem("week1_actw1_done") == "1") {
@@ -390,7 +414,7 @@
 
         var trackBS = document.getElementById("trackBS");
         // On track end, mark checkbox as done
-        trackBS.addEventListener("ended",function() {
+        trackBS.addEventListener("ended", function () {
             trackBS.pause();
             trackBS.currentTime = 0;
             $('#act1').prop('checked', true);

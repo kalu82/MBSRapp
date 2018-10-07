@@ -60,6 +60,29 @@ function sendAction() {
     }
 }
 
+// Set the information for text local log
 function setLogText() {
-    document.getElementById("log_text").value = document.getElementById("m_sent").value + " \t" + document.getElementById("m_id").value + " \t" + document.getElementById("m_username").value + " \t" + document.getElementById("m_action").value + " \t" + document.getElementById("m_week").value + " \t" + document.getElementById("m_day").value + " \t" + document.getElementById("m_device").value + " \t";    
+    document.getElementById("log_text").value = document.getElementById("m_sent").value + " \t" + document.getElementById("m_id").value + " \t" + document.getElementById("m_username").value + " \t" + document.getElementById("m_week").value + " \t" + document.getElementById("m_day").value + " \t" + document.getElementById("m_device").value + " \t" + document.getElementById("m_action").value + " \t" + document.getElementById("m_date").value + " \t" + document.getElementById("m_month").value  + " \t" + document.getElementById("m_year").value + " \t" + document.getElementById("m_hour").value + " \t" + document.getElementById("m_min").value  + " \t" + document.getElementById("m_sec").value + " \t" + document.getElementById("m_timestring").value;
+}
+
+function setLogInfo() {
+    var currentdate = new Date();
+    var actiondate = currentdate.getDate() + "-"
+        + (currentdate.getMonth() + 1) + "-"
+        + currentdate.getFullYear() + " "
+        + currentdate.getHours() + ":"
+        + currentdate.getMinutes() + ":"
+        + currentdate.getSeconds();
+
+    // Set the log information
+    document.getElementById("m_date").value = currentdate.getDate();
+    document.getElementById("m_month").value = (currentdate.getMonth() + 1);
+    document.getElementById("m_year").value = currentdate.getFullYear();
+    document.getElementById("m_hour").value = currentdate.getHours();
+    document.getElementById("m_min").value = currentdate.getMinutes();
+    document.getElementById("m_sec").value = currentdate.getSeconds();
+    document.getElementById("m_timestring").value = actiondate.toString();
+
+    document.getElementById("m_playingTrack").value = "none";
+    document.getElementById("m_progressTrack").value = "99";
 }

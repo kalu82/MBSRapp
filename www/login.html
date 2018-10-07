@@ -89,6 +89,7 @@
         }
 
         function sendData() {
+            alert('Sending offline data...');
             //window.alert("Successful file read: " + this.result);
             var countNum = 1;
 
@@ -188,6 +189,8 @@
 
             document.getElementById("m_playingTrack").value = "none";
             document.getElementById("m_progressTrack").value = "99";
+
+            alert("before sending...");
 
             sendAction();
             //setLogText();

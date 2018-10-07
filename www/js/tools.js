@@ -47,14 +47,14 @@ function sendAction() {
         });
         document.getElementById("m_sent").value = "1";
 
-        // Send also on a secondary db
-        $.ajax({
-            url: "http://mbsr.x10host.com/php_scripts/setAction.php",
-            type: "POST",
-            data: form_data,
-            processData: false,  // tell jQuery not to process the data
-            contentType: false   // tell jQuery not to set contentType
-        });
+        // // Send also on a secondary db
+        // $.ajax({
+        //     url: "http://mbsr.x10host.com/php_scripts/setAction.php",
+        //     type: "POST",
+        //     data: form_data,
+        //     processData: false,  // tell jQuery not to process the data
+        //     contentType: false   // tell jQuery not to set contentType
+        // });
 
         return 1;
     } else {

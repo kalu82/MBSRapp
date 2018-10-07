@@ -36,7 +36,7 @@ function sendAction() {
     
     // Check if browser is connected, otherwise don't send the data
     if (navigator.onLine) {
-        this.setLogInfo();
+        //this.setLogInfo();
         var form_data = new FormData(document.getElementById("action_form"));
         $.ajax({
             url: "http://www.mindfulness-istc.online/php_scripts/sendAction.php",

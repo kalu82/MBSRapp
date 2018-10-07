@@ -46,7 +46,8 @@ function sendAction() {
             contentType: false   // tell jQuery not to set contentType
         });
         document.getElementById("m_sent").value = "1";
-
+        alert('Sent info');
+        
         // // Send also on a secondary db
         // $.ajax({
         //     url: "http://mbsr.x10host.com/php_scripts/setAction.php",
@@ -61,7 +62,7 @@ function sendAction() {
         document.getElementById("m_sent").value = "0";
         return 0;
     }
-    alert('Sent info');
+    alert('Finished sent info');
     
 }
 

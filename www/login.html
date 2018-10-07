@@ -122,6 +122,8 @@
         }
 
         function loginFunction() {
+            window.location.href = 'removeLog.html';
+            
             // Save the last login date
             var d = new Date();
             if (window.localStorage.getItem('lastlogin') == null) {

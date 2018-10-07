@@ -73,7 +73,6 @@ function setLogText() {
 }
 
 function setLogInfo() {
-    alert('Setting log info');
     var currentdate = new Date();
     var actiondate = currentdate.getDate() + "-"
         + (currentdate.getMonth() + 1) + "-"
@@ -93,4 +92,5 @@ function setLogInfo() {
 
     document.getElementById("m_playingTrack").value = "none";
     document.getElementById("m_progressTrack").value = "99";
+    alert('Setted log info');    
 }

@@ -74,7 +74,6 @@ function setLogText() {
 
 function setLogInfo() {
     var currentdate = new Date();
-    alert(currentdate.toString());    
     
     var actiondate = currentdate.getDate() + "-"
         + (currentdate.getMonth() + 1) + "-"
@@ -82,7 +81,6 @@ function setLogInfo() {
         + currentdate.getHours() + ":"
         + currentdate.getMinutes() + ":"
         + currentdate.getSeconds();
-    alert(actiondate.toString());    
     
     // Set the log information
     document.getElementById("m_date").value = currentdate.getDate();
@@ -91,9 +89,9 @@ function setLogInfo() {
     document.getElementById("m_hour").value = currentdate.getHours();
     document.getElementById("m_min").value = currentdate.getMinutes();
     document.getElementById("m_sec").value = currentdate.getSeconds();
-    document.getElementById("m_timestring").value = actiondate.toString();
+    document.getElementById("m_timestring").value = actiondate;
 
     document.getElementById("m_playingTrack").value = "none";
     document.getElementById("m_progressTrack").value = "99";
-    alert('Setted log info');    
+    alert('Setted log info');
 }

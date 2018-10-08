@@ -16,12 +16,10 @@ function check_boxes() {
 function check_actweek(numact) {
     if (document.getElementById('actw' + numact).checked) {
         window.localStorage.setItem('week' + week + '_actw' + numact + '_done', '1');
-        document.getElementById("m_action").value = 'do_w' + numact;
-        sendAction();
+        sendAction('do_w' + numact);
     } else {
         window.localStorage.setItem('week' + week + '_actw' + numact + '_done', '0');
-        document.getElementById("m_action").value = 'undo_' + numact;
-        sendAction();
+        sendAction('undo_w' + numact);
     }
 }
 
@@ -29,11 +27,9 @@ function check_act(numact) {
     if (document.getElementById('act' + numact).checked) {
         window.localStorage.setItem('week' + week + '_act' + numact + '_done', '1');
         $('#row_act' + numact).addClass('animated pulse');
-        document.getElementById("m_action").value = 'do' + numact;
-        sendAction();
+        sendAction('do' + numact);
     } else {
         window.localStorage.setItem('week' + week + '_act' + numact + '_done', '0');
-        document.getElementById("m_action").value = 'undo' + numact;
-        sendAction();
+        sendAction('undo' + numact);
     }
 }

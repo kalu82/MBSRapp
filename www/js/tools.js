@@ -31,10 +31,12 @@ function functionLogout() {
     location.reload();
 }
 
-function sendAction() {    
+function sendAction(act_to_send) {    
     // Check if browser is connected, otherwise don't send the data
     if (navigator.onLine) {
-        this.setLogInfo();
+        this.setLogInfo();        
+        document.getElementById("m_action").value = act_to_send;
+
         var form_data = new FormData(document.getElementById("action_form"));
         $.ajax({
             url: "http://www.mindfulness-istc.online/php_scripts/sendAction.php",

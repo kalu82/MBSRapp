@@ -19,9 +19,9 @@ function functionLogout() {
     location.reload();
 }
 
-function sendAction(act_to_send) {    
+function sendAction(act_to_send) {
     // Check if browser is connected, otherwise don't send the data
-    this.setLogInfo();        
+    this.setLogInfo();
     if (navigator.onLine) {
         document.getElementById("m_action").value = act_to_send;
 
@@ -34,7 +34,7 @@ function sendAction(act_to_send) {
             contentType: false   // tell jQuery not to set contentType
         });
         document.getElementById("m_sent").value = "1";
-        
+
         // // Send also on a secondary db
         // $.ajax({
         //     url: "http://mbsr.x10host.com/php_scripts/setAction.php",
@@ -48,9 +48,9 @@ function sendAction(act_to_send) {
     } else {
         document.getElementById("m_sent").value = "0";
         this.setLogText();
-        document.getElementById("log_btn").click(); 
+        document.getElementById("log_btn").click();
         return 0;
-    }    
+    }
 }
 
 function sendActionFromTxt() {
@@ -79,15 +79,27 @@ function setLogText() {
 }
 
 function setLogInfo() {
+    // Check which day of the week is the actual one
     var currentdate = new Date();
-    
+    var weekStart = new Date(window.localStorage.getItem('mbsr_week_' + week));
+    var weekday = Math.ceil((now.getTime() - weekStart.getTime()) / (1000 * 3600 * 24));
+
+    // Set the log information
+    document.getElementById("m_sent").value = "";
+
+    document.getElementById("m_id").value = window.localStorage.getItem("id");
+    document.getElementById("m_username").value = window.localStorage.getItem("username");
+    document.getElementById("m_week").value = week.toString();
+    document.getElementById("m_day").value = weekday;
+    document.getElementById("m_device").value = "app";
+
     var actiondate = currentdate.getDate() + "-"
         + (currentdate.getMonth() + 1) + "-"
         + currentdate.getFullYear() + " "
         + currentdate.getHours() + ":"
         + currentdate.getMinutes() + ":"
         + currentdate.getSeconds();
-    
+
     // Set the log information
     document.getElementById("m_date").value = currentdate.getDate().toString();
     document.getElementById("m_month").value = (currentdate.getMonth() + 1).toString();
@@ -97,7 +109,7 @@ function setLogInfo() {
     document.getElementById("m_sec").value = currentdate.getSeconds().toString();
     document.getElementById("m_timestring").value = actiondate.toString();
 
-    document.getElementById("m_playingTrack").value = "prova"; // what_is_playing;
-    document.getElementById("m_progressTrack").value = "99"; //progression_playing_track;
+    document.getElementById("m_playingTrack").value = what_is_playing;
+    document.getElementById("m_progressTrack").value = progression_playing_track;
 }
 

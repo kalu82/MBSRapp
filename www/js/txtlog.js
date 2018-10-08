@@ -26,7 +26,7 @@ function onDeviceReady() {
 
 function writeLog(str) {
     if (!logOb) return;
-    var log = str;
+    var log = str + "\n";
     console.log("going to log " + log);
     logOb.createWriter(function (fileWriter) {
 
@@ -35,7 +35,6 @@ function writeLog(str) {
         var blob = new Blob([log], { type: 'text/plain' });
         fileWriter.write(blob);
         console.log("ok, in theory i worked");
-        alert("LOG" + log);
     }, fail);
 }
 

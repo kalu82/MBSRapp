@@ -12,8 +12,8 @@
     <meta name="author" content="MBSR@ISTC">
 
     <script src="js/jquery-3.2.1.min.js"></script>
-    <script src="js/tools.js"></script>;   
-    
+    <script src="js/tools.js"></script>;
+
     <!-- Font Awesome -->
     <link rel="stylesheet" href="css/font-awesome.min.css">
     <link rel="stylesheet" href="css/font-awesome.css">
@@ -29,7 +29,7 @@
 
 </head>
 
-<body onload="checkLogin()">
+<body onload="this.checkLogin()">
     <div class="intro container-fluid d-flex justify-content-center">
         <div class="row d-flex ">
             <div class="col">
@@ -50,9 +50,10 @@
                         <i class="fa fa-user prefix grey-text"></i>
                         <input class="white-text" type="text" id="i_id" name="i_id" required placeholder="Inserisci il tuo codice personale">
                     </div>
-                    
+
                     <div class="text-center">
-                        <button class="btn btn-primary" type="submit" id="submit" onclick="return submitForm();"><i id="spinner" class="fa"></i> Login</button>
+                        <button class="btn btn-primary" type="submit" id="submit" onclick="return submitForm();"><i id="spinner"
+                                class="fa"></i> Login</button>
                     </div>
                 </form>
                 <!-- Form login -->
@@ -75,19 +76,17 @@
 
     <!-- Hidden button and text to log data -->
     <div hidden>
-        <input type="text" id="log_text"/>
+        <input type="text" id="log_text" />
         <button id="log_btn"></button>
     </div>
 
     <script>
-        
+
         function checkLogin() {
-            if (window.localStorage.getItem('newLogin') != null) {
-                if (window.localStorage.getItem('username') != null) {
-                    document.getElementById("i_id").value = window.localStorage.getItem("id");
-                    document.getElementById("i_username").value = window.localStorage.getItem("username");
-                    window.location.href = 'login.html';
-                }
+            if (window.localStorage.getItem('username') != null) {
+                document.getElementById("i_id").value = window.localStorage.getItem("id");
+                document.getElementById("i_username").value = window.localStorage.getItem("username");
+                window.location.href = 'login.html';
             }
         }
 
@@ -177,7 +176,7 @@
             });
             return false;
         }
-    
+
         function getWeek4() {
             var form_data = new FormData(document.getElementById("login_form"));
             $.ajax({
@@ -305,7 +304,7 @@
             });
             return false;
         }
-    
+
     </script>
 
     <script type="text/javascript" src="cordova.js"></script>

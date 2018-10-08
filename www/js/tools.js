@@ -21,7 +21,10 @@ function functionLogout() {
 
 function sendAction(act_to_send) {
     // Check if browser is connected, otherwise don't send the data
-    this.setLogInfo();
+    if (act_to_send != "login") {
+        this.setLogInfo();
+    }
+    
     if (navigator.onLine) {
         document.getElementById("m_action").value = act_to_send;
 
@@ -100,7 +103,6 @@ function setLogInfo() {
         + currentdate.getMinutes() + ":"
         + currentdate.getSeconds();
 
-    // Set the log information
     document.getElementById("m_date").value = currentdate.getDate().toString();
     document.getElementById("m_month").value = (currentdate.getMonth() + 1).toString();
     document.getElementById("m_year").value = currentdate.getFullYear().toString();

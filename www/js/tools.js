@@ -9,20 +9,8 @@ function checkLogin() {
 
 // function to logout
 function functionLogout() {
-    // Log the logout action
-    document.getElementById("m_id").value = window.localStorage.getItem("id");
-    document.getElementById("m_username").value = window.localStorage.getItem("username");
-    document.getElementById("m_week").value = "0";
-    document.getElementById("m_day").value = "0";
-    document.getElementById("m_device").value = "app";
-    document.getElementById("m_action").value = "logout";
-
-    // Log on text file
-    this.setLogText();
-    if (document.getElementById("m_sent").value == "0") { document.getElementById("log_btn").click(); }
-
     // Try to send info to the server
-    sendAction();
+    sendAction("logout");
 
     // Empty local ans session storage
     window.localStorage.clear();
@@ -63,6 +51,26 @@ function sendAction(act_to_send) {
         document.getElementById("log_btn").click(); 
         return 0;
     }    
+}
+
+function sendActionFromTxt() {
+    // Check if browser is connected, otherwise don't send the data
+    if (navigator.onLine) {
+        var form_data = new FormData(document.getElementById("action_form"));
+        $.ajax({
+            url: "http://www.mindfulness-istc.online/php_scripts/sendAction.php",
+            type: "POST",
+            data: form_data,
+            processData: false,  // tell jQuery not to process the data
+            contentType: false   // tell jQuery not to set contentType
+        });
+        return 1;
+    } else {
+        document.getElementById("m_sent").value = "0";
+        this.setLogText();
+        document.getElementById("log_btn").click();
+        return 0;
+    }
 }
 
 // Set the information for text local log

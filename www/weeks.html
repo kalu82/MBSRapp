@@ -38,106 +38,95 @@
 </head>
 
 <body onload="check_dates()">
+    <div class="intro container-fluid d-flex justify-content-center">
+        <div class="row">
+            <div class="col">
+                <!-- Heading -->
+                <p></p><h2 class="display-5 font-bold text-center white-text mb-2 animated fadeInRight">SCEGLI UNA SETTIMANA</h2>
+                <div class="ftext-center white-text animated fadeInRight">Sono disponibili per la selezione solo le pagine relative alle settimane già attivate.</div>
+                <br>
+                <p></p>
 
-    <div id="intro" class="view hm-black-strong">
-
-        <div class="container-fluid full-bg-img d-flex align-items-center justify-content-center">
-            <div class="row d-flex justify-content-center">
-                <div class="col">
-                    <!-- Heading -->
-                    <br>
-                    <h4 class="display-6 text-center blue-text mb-2 animated fadeInDown">Benvenuto <span id="print_userName"></span></h4>
-                    <h4 class="display-6 text-center blue-text mb-2 animated fadeInDown">sei alla settimana <span id="print_week"></span>
-                        del protocollo</h4><br>
-                    <h2 class="display-5 font-bold text-center white-text mb-2 animated fadeInRight">SCEGLI UNA
-                        SETTIMANA</h2>
-                    <div class="ftext-center white-text animated fadeInRight">Sono disponibili per la selezione solo le
-                        pagine relative alle settimane già attivate.</div><br>
-
-                    <div class="animated fadeInLeft">
-                        <button class="btn btn-primary btn-lg btn-block" id="w1" name="w1" onclick="location.href='http://www.mindfulness-istc.online/weeks_1.html'">Settimana
-                            1</button>
-                        <button class="btn btn-primary btn-lg btn-block" id="w2" name="w2" onclick="location.href='http://www.mindfulness-istc.online/weeks_2.html'"
-                            disabled>Settimana 2</button>
-                        <button class="btn btn-primary btn-lg btn-block" id="w3" name="w3" onclick="location.href='http://www.mindfulness-istc.online/weeks_3.html'"
-                            disabled>Settimana 3</button>
-                        <button class="btn btn-primary btn-lg btn-block" id="w4" name="w4" onclick="location.href='http://www.mindfulness-istc.online/weeks_4.html'"
-                            disabled>Settimana 4</button>
-                        <button class="btn btn-primary btn-lg btn-block" id="w5" name="w5" onclick="location.href='http://www.mindfulness-istc.online/weeks_5.html'"
-                            disabled>Settimana 5</button>
-                        <button class="btn btn-primary btn-lg btn-block" id="w6" name="w6" onclick="location.href='http://www.mindfulness-istc.online/weeks_6.html'"
-                            disabled>Settimana 6</button>
-                        <button class="btn btn-primary btn-lg btn-block" id="w7" name="w7" onclick="location.href='http://www.mindfulness-istc.online/weeks_7.html'"
-                            disabled>Settimana 7</button>
-                        <button class="btn btn-primary btn-lg btn-block" id="w8" name="w8" onclick="location.href='http://www.mindfulness-istc.online/weeks_8.html'"
-                            disabled>Settimana 8</button>
-                    </div>
-
-                    <!--Panel-->
-                    <div class="row">
-                        <div class="col text-center">
-                            <button type="button" class="btn btn-flat btn-lg" style="background-color: Transparent; background-repeat:no-repeat; border: none; cursor:pointer; overflow: hidden; outline:none;"
-                                onclick="location.href='weeks.html'">
-                                <i class="fa fa-home"></i> Home</button>
-                        </div>
-                        <div class="col text-center">
-                            <button type="button" class="btn btn-flat btn-lg" style="background-color: Transparent; background-repeat:no-repeat; border: none; cursor:pointer; overflow: hidden; outline:none;"
-                                onclick="functionLogout();">
-                                <i class="fa fa-sign-out"></i> Logout</button>
-                        </div>
-                    </div>
-                    <!--/.Panel-->
-
-                    <div class="customHr"></div>
+                <div class="animated fadeInLeft">
+                    <button class="btn btn-primary btn-lg btn-block" id="w1" name="w1" onclick="location.href='weeks_1.html'">Settimana 1</button>
+                    <button class="btn btn-primary btn-lg btn-block" id="w2" name="w2" onclick="location.href='weeks_2.html'">Settimana 2</button>
+                    <button class="btn btn-primary btn-lg btn-block" id="w3" name="w3" onclick="location.href='weeks_3.html'">Settimana 3</button>
+                    <button class="btn btn-primary btn-lg btn-block" id="w4" name="w4" onclick="location.href='weeks_4.html'">Settimana 4</button>
+                    <button class="btn btn-primary btn-lg btn-block" id="w5" name="w5" onclick="location.href='weeks_5.html'">Settimana 5</button>
+                    <button class="btn btn-primary btn-lg btn-block" id="w6" name="w6" onclick="location.href='weeks_6.html'">Settimana 6</button>
+                    <button class="btn btn-primary btn-lg btn-block" id="w7" name="w7" onclick="location.href='weeks_7.html'">Settimana 7</button>
+                    <button class="btn btn-primary btn-lg btn-block" id="w8" name="w8" onclick="location.href='weeks_8.html'">Settimana 8</button>
                 </div>
+
+                <!--Panel-->
+                <div class="row">
+                    <div class="col text-center">
+                        <button type="button" class="btn btn-flat btn-lg" style="background-color: Transparent; background-repeat:no-repeat; border: none; cursor:pointer; overflow: hidden; outline:none;"
+                            onclick="location.href='weeks.html'">
+                            <i class="fa fa-home"></i> Home</button>
+                    </div>
+                    <div class="col text-center">
+                        <button type="button" class="btn btn-flat btn-lg" style="background-color: Transparent; background-repeat:no-repeat; border: none; cursor:pointer; overflow: hidden; outline:none;"
+                            onclick="functionLogout();">
+                            <i class="fa fa-sign-out"></i> Logout</button>
+                    </div>
+                </div>
+                <p></p>
+                <!--/.Panel-->
             </div>
+        </div>
+
+        <!-- Hidden form for submit -->
+        <form method="post" id="action_form" name="action_form" action="#">
+            <input type="hidden" id="m_sent" name="m_sent" value="">
+            <input type="hidden" id="m_id" name="m_id" value="">
+            <input type="hidden" id="m_username" name="m_username" value="">
+            <input type="hidden" id="m_action" name="m_action" value="">
+            <input type="hidden" id="m_week" name="m_week" value="">
+            <input type="hidden" id="m_day" name="m_day" value="">
+            <input type="hidden" id="m_device" name="m_device" value="app">
+        </form>
+        
+        <!-- Hidden button and text to log data -->
+        <div hidden>
+            <input type="text" id="log_text" />
+            <button id="log_btn"></button>
         </div>
     </div>
 
     <script>
-
-        document.getElementById('print_userName').innerHTML = window.localStorage.getItem("username");
-        document.getElementById('print_week').innerHTML = window.localStorage.getItem("username");
-
         function check_dates() {
-
+            
             // Check which week is the actual one
             var now = new Date();
 
-            var weekStart = new Date(window.localStorage.getItem('mbsr_week_2'));
+            var weekStart = new Date(window.localStorage.getItem('mbsr_week_2'));          
             if (Math.ceil((new Date().getTime() - weekStart.getTime()) / (1000)) < 0) {
                 $('#w2').prop('disabled', true);
-                window.localStorage.setItem('actual_week', '2');
             }
-            var weekStart = new Date(window.localStorage.getItem('mbsr_week_3'));
+            var weekStart = new Date(window.localStorage.getItem('mbsr_week_3'));            
             if (Math.ceil((new Date().getTime() - weekStart.getTime()) / (1000)) < 0) {
                 $('#w3').prop('disabled', true);
-                window.localStorage.setItem('actual_week', '3');
             }
-            var weekStart = new Date(window.localStorage.getItem('mbsr_week_4'));
+            var weekStart = new Date(window.localStorage.getItem('mbsr_week_4'));            
             if (Math.ceil((new Date().getTime() - weekStart.getTime()) / (1000)) < 0) {
                 $('#w4').prop('disabled', true);
-                window.localStorage.setItem('actual_week', '4');
             }
             var weekStart = new Date(window.localStorage.getItem('mbsr_week_5'));
             if (Math.ceil((new Date().getTime() - weekStart.getTime()) / (1000)) < 0) {
                 $('#w5').prop('disabled', true);
-                window.localStorage.setItem('actual_week', '5');
             }
             var weekStart = new Date(window.localStorage.getItem('mbsr_week_6'));
             if (Math.ceil((new Date().getTime() - weekStart.getTime()) / (1000)) < 0) {
                 $('#w6').prop('disabled', true);
-                window.localStorage.setItem('actual_week', '6');
             }
             var weekStart = new Date(window.localStorage.getItem('mbsr_week_7'));
             if (Math.ceil((new Date().getTime() - weekStart.getTime()) / (1000)) < 0) {
                 $('#w7').prop('disabled', true);
-                window.localStorage.setItem('actual_week', '7');
             }
             var weekStart = new Date(window.localStorage.getItem('mbsr_week_8'));
             if (Math.ceil((new Date().getTime() - weekStart.getTime()) / (1000)) < 0) {
                 $('#w8').prop('disabled', true);
-                window.localStorage.setItem('actual_week', '8');
             }
         }
     </script>

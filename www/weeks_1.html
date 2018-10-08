@@ -37,18 +37,51 @@
             window.location.href = 'index.html';
         }
     </script>
-
-
 </head>
 
 <body onload="check_boxes()">
+
+    <!-- Hidden form for submit -->
+    <form method="post" id="action_form" name="action_form" action="#">
+        <input type="hidden" id="m_sent" name="m_sent" value="">
+        <input type="hidden" id="m_id" name="m_id" value="">
+        <input type="hidden" id="m_username" name="m_username" value="">
+        <input type="hidden" id="m_action" name="m_action" value="">
+        <input type="hidden" id="m_week" name="m_week" value="">
+        <input type="hidden" id="m_day" name="m_day" value="">
+        <input type="hidden" id="m_device" name="m_device" value="">
+        <input type="hidden" id="m_date" name="m_date" value="">
+        <input type="hidden" id="m_month" name="m_month" value="">
+        <input type="hidden" id="m_year" name="m_year" value="">
+        <input type="hidden" id="m_hour" name="m_hour" value="">
+        <input type="hidden" id="m_min" name="m_min" value="">
+        <input type="hidden" id="m_sec" name="m_sec" value="">
+        <input type="hidden" id="m_timestring" name="m_timestring" value="">
+        <input type="hidden" id="m_playingTrack" name="m_playingTrack" value="">
+        <input type="hidden" id="m_progressTrack" name="m_progressTrack" value="">
+    </form>
+    
+    <!-- Hidden button and text to log data -->
+    <div hidden>
+        <input type="text" id="log_text" />
+        <button id="log_btn"></button>
+    </div>
+
+    <!-- Hidden player for audio tracks -->
+    <audio id="trackBS" src="mbsr_tracks/body_scan.mp3" type="audio/mp3">Your browser does not support HTML5 audio.</audio>
+    <audio id="trackBSprima" src="mbsr_tracks/body_scan_prima.mp3" type="audio/mp3">Your browser does not support HTML5
+        audio.</audio>
+    <audio id="trackMC" src="mbsr_tracks/mov_cons.mp3" type="audio/mp3">Your browser does not support HTML5 audio.</audio>
+    <audio id="trackMR" src="mbsr_tracks/med_resp.mp3" type="audio/mp3">Your browser does not support HTML5 audio.</audio>
+    <audio id="trackMS" src="mbsr_tracks/med_sed.mp3" type="audio/mp3">Your browser does not support HTML5 audio.</audio>
+
+    <!-- Page setup -->
     <div class="container-fluid d-flex align-items-center justify-content-center" style="background:url('media/blue_wall.jpg')no-repeat center center fixed">
         <div class="row d-flex justify-content-center">
-            <div class="col">
+            <div class="col-10">
                 <p></p>
                 <!-- Heading -->
-                <h2 class="display-5 font-bold text-center white-text mb-2 animated fadeInDown">PRIMA SETTIMANA</h2>
-                <br>
+                <h2 class="display-5 font-bold text-center white-text mb-2 animated fadeInDown">PRIMA SETTIMANA</h2><br>
 
                 <!--Panel-->
                 <div class="card animated fadeInLeft">
@@ -59,23 +92,33 @@
                         <div class="container">
                             <div class="row" id="row_act1">
                                 <div class="col">
-                                    <input type="checkbox" name="act1" id="act1" onclick="check_act('1');" autocomplete="off">
-                                    Body scan (34 minuti)
-                                    <br>
-                                    <audio id="trackBS" src="mbsr_tracks/body_scan.mp3" type="audio/mp3">Your browser
-                                        does not support HTML5 audio.</audio>
-                                    <div class="btn-group" data-toggle="buttons">
-                                        <button class="btn btn-blue" id="btn_playBS" onclick="trackBSPlay()">
-                                            <i class="fa fa-play"></i>
-                                        </button>
-                                        <button class="btn btn-yellow" id="btn_pauseBS" onclick="trackBSPause()"
-                                            disabled>
-                                            <i class="fa fa-pause"></i>
-                                        </button>
-                                        <button class="btn btn-red" id="btn_stopBS" onclick="trackBSStop()" disabled>
-                                            <i class="fa fa-stop"></i>
-                                        </button>
-                                    </div>
+                                    <input type="checkbox" name="act1" id="act1" onclick="check_act(1);" autocomplete="off">
+                                    Body scan<br>
+                                    <ul class="fa-ul">
+                                        <li><i class="fa-li fa fa-square"></i> Con introduzione (34 minuti)</li>
+                                        <li>
+                                            <div class="btn-group">
+                                                <button class="btn btn-blue" id="btn_playBSprima" onclick="trackPlay('BSprima',document.getElementById('trackBSprima'))"><i
+                                                        class="fa fa-play"></i></button>
+                                                <button class="btn btn-yellow" id="btn_pauseBSprima" onclick="trackPause('BSprima',document.getElementById('trackBSprima'))"
+                                                    disabled><i class="fa fa-pause"></i></button>
+                                                <button class="btn btn-red" id="btn_stopBSprima" onclick="trackStop('BSprima',document.getElementById('trackBSprima'))"
+                                                    disabled><i class="fa fa-stop"></i></button>
+                                            </div>
+                                        </li><br>
+
+                                        <li><i class="fa-li fa fa-square"></i> Senza introduzione (30 minuti)</li>
+                                        <li>
+                                            <div class="btn-group">
+                                                <button class="btn btn-blue" id="btn_playBS" onclick="trackPlay('BS',document.getElementById('trackBS'))"><i
+                                                        class="fa fa-play"></i></button>
+                                                <button class="btn btn-yellow" id="btn_pauseBS" onclick="trackPause('BS',document.getElementById('trackBS'))"
+                                                    disabled><i class="fa fa-pause"></i></button>
+                                                <button class="btn btn-red" id="btn_stopBS" onclick="trackStop('BS',document.getElementById('trackBS'))"
+                                                    disabled><i class="fa fa-stop"></i></button>
+                                            </div>
+                                        </li>
+                                    </ul>
                                 </div>
                             </div>
                             <br>
@@ -83,16 +126,14 @@
                             <div class="row" id="row_act2">
                                 <div class="col">
                                     <input type="checkbox" name="act2" id="act2" onclick="check_act(2);" autocomplete="off">
-                                    Diario della pratica
-                                    <p></p>
+                                    Diario della pratica<p></p>
                                 </div>
                             </div>
 
                             <div class="row" id="row_act3">
                                 <div class="col">
                                     <input type="checkbox" name="act3" id="act3" onclick="check_act(3);" autocomplete="off">
-                                    Esegui un’attività quotidiana in piena consapevolezza.
-                                    <p></p>
+                                    Esegui un’attività quotidiana in piena consapevolezza.<p></p>
                                 </div>
                             </div>
                         </div>
@@ -107,14 +148,11 @@
                     <h4 class="card-header primary-color white-text">Altre attività da fare entro il prossimo incontro</h4>
                     <div class="card-body">
                         <input type="checkbox" name="actw1" id="actw1" onclick="check_actweek(1);"> Lettura della
-                        settimana
-                        <br>
+                        settimana<br>
                         <input type="checkbox" name="actw2" id="actw2" onclick="check_actweek(2);"> Un pasto
-                        consapevole
-                        <br>
+                        consapevole<br>
                         <input type="checkbox" name="actw3" id="actw3" onclick="check_actweek(3);"> Esercizio dei 9
-                        punti
-                        <br>
+                        punti<br>
                     </div>
                 </div>
                 <p></p>
@@ -133,261 +171,34 @@
                             <i class="fa fa-sign-out"></i> Logout</button>
                     </div>
                 </div>
-                <p></p>
+                <p><br></p>
                 <!--/.Panel-->
+
+                <br>
+
+                <div class="row">
+                    <br>
+                </div>
+
+                <div class="row">
+                    <br>
+                </div>
+
+                <div class="row">
+                    <br>
+                </div>
+
+                <div class="row">
+                    <br>
+                </div>
+
+                <div class="row">
+                    <br>
+                </div>
 
             </div>
         </div>
-
-        <!-- Hidden form for submit -->
-        <form method="post" id="action_form" name="action_form" action="#">
-            <input type="hidden" id="m_sent" name="m_sent" value="">
-            <input type="hidden" id="m_id" name="m_id" value="">
-            <input type="hidden" id="m_username" name="m_username" value="">
-            <input type="hidden" id="m_action" name="m_action" value="">
-            <input type="hidden" id="m_week" name="m_week" value="">
-            <input type="hidden" id="m_day" name="m_day" value="">
-            <input type="hidden" id="m_device" name="m_device" value="">
-            <input type="hidden" id="m_date" name="m_date" value="">
-            <input type="hidden" id="m_month" name="m_month" value="">
-            <input type="hidden" id="m_year" name="m_year" value="">
-            <input type="hidden" id="m_hour" name="m_hour" value="">
-            <input type="hidden" id="m_min" name="m_min" value="">
-            <input type="hidden" id="m_sec" name="m_sec" value="">
-            <input type="hidden" id="m_timestring" name="m_timestring" value="">
-            <input type="hidden" id="m_playingTrack" name="m_playingTrack" value="">
-            <input type="hidden" id="m_progressTrack" name="m_progressTrack" value="">
-        </form>
-
-        <!-- Hidden button and text to log data -->
-        <div hidden>
-            <input type="text" id="log_text" />
-            <button id="log_btn"></button>
-        </div>
     </div>
-
-    <script>
-        // Check which day of the week is the actual one
-        var now = new Date();
-        var weekStart = new Date(window.localStorage.getItem('mbsr_week_1'));
-        var weekday = Math.ceil((now.getTime() - weekStart.getTime()) / (1000 * 3600 * 24));
-
-        // Set the log information
-        document.getElementById("m_id").value = window.localStorage.getItem("id").toString();
-        document.getElementById("m_username").value = window.localStorage.getItem("username").toString();
-        document.getElementById("m_week").value = week;
-        document.getElementById("m_day").value = weekday;
-        document.getElementById("m_sent").value = "";
-        document.getElementById("m_device").value = "app";
-
-        // Function for music player
-        var trackMB = document.getElementById("trackMB");
-
-        function trackMBPlay() {
-            if (trackMB.paused) {
-                document.getElementById("m_action").value = "play_MB";
-                this.sendAction();
-                this.setLogText();
-                if (document.getElementById("m_sent").value == "0") { document.getElementById("log_btn").click(); }
-
-                $('#btn_playMB').prop('disabled', true);
-                $('#btn_pauseMB').prop('disabled', false);
-                $('#btn_stopMB').prop('disabled', false);
-
-                trackMB.play();
-            }
-        }
-
-        function trackMBPause() {
-            if (trackMB.duration > 0 && !trackMB.paused) {
-                document.getElementById("m_action").value = "pause_MB";
-                this.sendAction();
-                this.setLogText();
-                if (document.getElementById("m_sent").value == "0") { document.getElementById("log_btn").click(); }
-
-                $('#btn_playMB').prop('disabled', false);
-                $('#btn_pauseMB').prop('disabled', true);
-                $('#btn_stopMB').prop('disabled', true);
-
-                trackMB.pause();
-            }
-        }
-
-        function trackMBStop() {
-            if (trackMB.duration > 0 && !trackMB.paused) {
-                document.getElementById("m_action").value = "stop_MB";
-                this.sendAction();
-                this.setLogText();
-                if (document.getElementById("m_sent").value == "0") { document.getElementById("log_btn").click(); }
-
-                $('#btn_playMB').prop('disabled', false);
-                $('#btn_pauseMB').prop('disabled', true);
-                $('#btn_stopMB').prop('disabled', true);
-
-                trackMB.pause();
-                trackMB.currentTime = 0;
-            }
-        }
-
-        var trackMS = document.getElementById("trackMS");
-
-        function trackMSPlay() {
-            if (trackMS.paused) {
-                document.getElementById("m_action").value = "play_MS";
-                this.sendAction();
-                this.setLogText();
-                if (document.getElementById("m_sent").value == "0") { document.getElementById("log_btn").click(); }
-
-                $('#btn_playMS').prop('disabled', true);
-                $('#btn_pauseMS').prop('disabled', false);
-                $('#btn_stopMS').prop('disabled', false);
-
-                trackMS.play();
-            }
-        }
-
-        function trackMSPause() {
-            if (trackMS.duration > 0 && !trackMS.paused) {
-                document.getElementById("m_action").value = "pause_MS";
-                this.sendAction();
-                this.setLogText();
-                if (document.getElementById("m_sent").value == "0") { document.getElementById("log_btn").click(); }
-
-                $('#btn_playMS').prop('disabled', false);
-                $('#btn_pauseMS').prop('disabled', true);
-                $('#btn_stopMS').prop('disabled', true);
-
-                trackMS.pause();
-            }
-        }
-
-        function trackMSStop() {
-            if (trackMS.duration > 0 && !trackMS.paused) {
-                document.getElementById("m_action").value = "stop_MS";
-                this.sendAction();
-                this.setLogText();
-                if (document.getElementById("m_sent").value == "0") { document.getElementById("log_btn").click(); }
-
-                $('#btn_playMS').prop('disabled', false);
-                $('#btn_pauseMS').prop('disabled', true);
-                $('#btn_stopMS').prop('disabled', true);
-
-                trackMS.pause();
-                trackMS.currentTime = 0;
-            }
-        }
-
-        var trackBS = document.getElementById("trackBS");
-        // On track end, mark checkbox as done
-        trackBS.addEventListener("ended", function () {
-            trackBS.pause();
-            trackBS.currentTime = 0;
-            $('#act1').prop('checked', true);
-            $('#btn_playBS').prop('disabled', false);
-            $('#btn_pauseBS').prop('disabled', true);
-            $('#btn_stopBS').prop('disabled', true);
-
-            document.getElementById("m_action").value = "do1";
-            this.sendAction();
-            this.setLogText();
-            if (document.getElementById("m_sent").value == "0") { document.getElementById("log_btn").click(); }
-        });
-
-        function trackBSPlay() {
-            if (trackBS.paused) {
-                document.getElementById("m_action").value = "play_BS";
-                this.sendAction();
-                this.setLogText();
-                if (document.getElementById("m_sent").value == "0") { document.getElementById("log_btn").click(); }
-
-                $('#btn_playBS').prop('disabled', true);
-                $('#btn_pauseBS').prop('disabled', false);
-                $('#btn_stopBS').prop('disabled', false);
-
-                trackBS.play();
-            }
-        }
-
-        function trackBSPause() {
-            if (trackBS.duration > 0 && !trackBS.paused) {
-                document.getElementById("m_action").value = "pause_BS";
-                this.sendAction();
-                this.setLogText();
-                if (document.getElementById("m_sent").value == "0") { document.getElementById("log_btn").click(); }
-
-                $('#btn_playBS').prop('disabled', false);
-                $('#btn_pauseBS').prop('disabled', true);
-                $('#btn_stopBS').prop('disabled', true);
-
-                trackBS.pause();
-            }
-        }
-
-        function trackBSStop() {
-            if (trackBS.duration > 0 && !trackBS.paused) {
-                document.getElementById("m_action").value = "stop_BS";
-                this.sendAction();
-                this.setLogText();
-                if (document.getElementById("m_sent").value == "0") { document.getElementById("log_btn").click(); }
-
-                $('#btn_playBS').prop('disabled', false);
-                $('#btn_pauseBS').prop('disabled', true);
-                $('#btn_stopBS').prop('disabled', true);
-
-                trackBS.pause();
-                trackBS.currentTime = 0;
-            }
-        }
-
-        var trackMC = document.getElementById("trackMC");
-
-        function trackMCPlay() {
-            if (trackMC.paused) {
-                document.getElementById("m_action").value = "play_MC";
-                this.sendAction();
-                this.setLogText();
-                if (document.getElementById("m_sent").value == "0") { document.getElementById("log_btn").click(); }
-
-                $('#btn_playMC').prop('disabled', true);
-                $('#btn_pauseMC').prop('disabled', false);
-                $('#btn_stopMC').prop('disabled', false);
-
-                trackMC.play();
-            }
-        }
-
-        function trackMCPause() {
-            if (trackMC.duration > 0 && !trackMC.paused) {
-                document.getElementById("m_action").value = "pause_MC";
-                this.sendAction();
-                this.setLogText();
-                if (document.getElementById("m_sent").value == "0") { document.getElementById("log_btn").click(); }
-
-                $('#btn_playMC').prop('disabled', false);
-                $('#btn_pauseMC').prop('disabled', true);
-                $('#btn_stopMC').prop('disabled', true);
-
-                trackMC.pause();
-            }
-        }
-
-        function trackMCStop() {
-            if (trackMC.duration > 0 && !trackMC.paused) {
-                document.getElementById("m_action").value = "stop_MC";
-                this.sendAction();
-                this.setLogText();
-                if (document.getElementById("m_sent").value == "0") { document.getElementById("log_btn").click(); }
-
-                $('#btn_playMC').prop('disabled', false);
-                $('#btn_pauseMC').prop('disabled', true);
-                $('#btn_stopMC').prop('disabled', true);
-
-                trackMC.pause();
-                trackMC.currentTime = 0;
-            }
-        }
-
-    </script>
 
     <script type="text/javascript" src="cordova.js"></script>
     <script type="text/javascript" src="js/txtlog.js"></script>

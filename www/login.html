@@ -95,7 +95,7 @@
         }
 
         function sendData() {
-            window.alert("Successful file read: " + this.result);
+            //window.alert("Successful file read: " + this.result);
             var countNum = 1;
 
             // Send the text lines to server
@@ -120,7 +120,7 @@
                     document.getElementById("m_hour").value = tabs[10].replace(' ', '');
                     document.getElementById("m_min").value = tabs[11].replace(' ', '');
                     document.getElementById("m_sec").value = tabs[12].replace(' ', '');
-                    document.getElementById("m_timestring").value = tabs[13].slice(2, tabs[13].length - 7);
+                    document.getElementById("m_timestring").value = tabs[13];
                     document.getElementById("m_playingTrack").value = tabs[14].replace(' ', '');
                     document.getElementById("m_progressTrack").value = tabs[15].replace(' ', '');
 
@@ -161,7 +161,9 @@
             sendAction('login');
 
             // Go to weeks page
-            window.location.href = 'removeLog.html';
+            setTimeout(function () {
+                window.location.href = 'removeLog.html';
+            }, 200);
         }
     </script>
 

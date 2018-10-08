@@ -90,5 +90,4 @@ function setLogInfo() {
 
     document.getElementById("m_playingTrack").value = "none";
     document.getElementById("m_progressTrack").value = "99";
-    alert('Setted log info');
 }

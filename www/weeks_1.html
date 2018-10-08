@@ -29,6 +29,7 @@
     <script src="js/jquery-3.2.1.min.js"></script>
     <script src="js/tools.js"></script>
     <script src="js/player_function.js"></script>
+    <script src="js/checksController.js"></script>
 
     <!-- Check if user is logged; otherwise, go to login page -->
     <script>
@@ -193,32 +194,7 @@
             }
         }
 
-        // On checks, set a cookie to memorize the checked boxes
-        function check_actweek(numact) {
-            if (document.getElementById('actw' + numact).checked) {
-                window.localStorage.setItem('week' + week + '_actw' + numact + '_done', '1');
-                document.getElementById("m_action").value = 'do_w' + numact;
-                sendAction();
-            } else {
-                window.localStorage.setItem('week' + week + '_actw' + numact + '_done', '0');
-                document.getElementById("m_action").value = 'undo_' + numact;
-                sendAction();
-            }
-        }
-
-        function check_act(numact) {
-            if (document.getElementById('act' + numact).checked) {
-                window.localStorage.setItem('week' + week + '_act' + numact + '_done', '1');
-                $('#row_act' + numact).addClass('animated pulse');
-                document.getElementById("m_action").value = 'do' + numact;
-                sendAction();
-            } else {
-                window.localStorage.setItem('week' + week + '_act' + numact + '_done', '0');
-                document.getElementById("m_action").value = 'undo' + numact;
-                sendAction();
-            }
-        }
-
+        
         // On checks, set a var to memorize the checked boxes
         function check_actw1() {
             if (document.getElementById('actw1').checked) {

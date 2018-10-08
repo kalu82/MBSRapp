@@ -26,7 +26,7 @@ function onDeviceReady() {
 
 function writeLog(str) {
     if (!logOb) return;
-    var log = str + " [" + (new Date()) + "]\n";
+    var log = str;
     console.log("going to log " + log);
     logOb.createWriter(function (fileWriter) {
 

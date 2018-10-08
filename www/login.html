@@ -7,16 +7,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
 
-    <title>MBSR login</title>
-    <meta name="description" content="MBSR login page">
-    <meta name="author" content="MBSR@ISTC">
-    <script>var week = 0;</script>
-
-    <!-- Include JS libraries -->
-    <script src="js/jquery-3.2.1.min.js"></script>
-    <script src="js/tools.js"></script>;
-    <script src="js/player_function.js"></script>
-
     <!-- Font Awesome -->
     <link rel="stylesheet" href="css/font-awesome.min.css">
     <link rel="stylesheet" href="css/font-awesome.css">
@@ -29,6 +19,17 @@
 
     <!-- Your custom styles (optional) -->
     <link href="css/style.css" rel="stylesheet">
+
+    <title>MBSR login</title>
+    <meta name="description" content="MBSR login page">
+    <meta name="author" content="MBSR@ISTC">
+    <script>var week = 0;</script>
+
+    <!-- Include JS libraries -->
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="js/tools.js"></script>
+    <script src="js/player_function.js"></script>
+    <script src="js/checksController.js"></script>
 
 </head>
 
@@ -87,7 +88,7 @@
             } else {
                 setTimeout(function () {
                     loginFunction();
-                }, 500);
+                }, 100);
             }
         }
 
@@ -120,7 +121,7 @@
 
             setTimeout(function () {
                 loginFunction();
-            }, 300 * countNum);
+            }, 100 * countNum);
         }
 
         function loginFunction() {
@@ -135,7 +136,7 @@
                 if (Math.ceil((d.getTime() - dlast.getTime()) / (1000 * 3600 * 24)) > 1) {
                     for (var w = 1; w < 9; w++) {
                         for (var i = 1; i < 5; i++) {
-                            window.localStorage.removeItem('week'+w+'_act'+i+'_done');
+                            window.localStorage.removeItem('week' + w + '_act' + i + '_done');
                         }
                     }
                 }

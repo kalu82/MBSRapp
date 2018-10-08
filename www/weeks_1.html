@@ -108,9 +108,11 @@
                         <input type="checkbox" name="actw1" id="actw1" onclick="check_actweek(1);"> Lettura della
                         settimana
                         <br>
-                        <input type="checkbox" name="actw2" id="actw2" onclick="check_actweek(2);"> Un pasto consapevole
+                        <input type="checkbox" name="actw2" id="actw2" onclick="check_actweek(2);"> Un pasto
+                        consapevole
                         <br>
-                        <input type="checkbox" name="actw3" id="actw3" onclick="check_actweek(3);"> Esercizio dei 9 punti
+                        <input type="checkbox" name="actw3" id="actw3" onclick="check_actweek(3);"> Esercizio dei 9
+                        punti
                         <br>
                     </div>
                 </div>
@@ -195,10 +197,12 @@
         function check_actweek(numact) {
             if (document.getElementById('actw' + numact).checked) {
                 window.localStorage.setItem('week' + week + '_actw' + numact + '_done', '1');
-                sendAction('do_w' + numact);
+                document.getElementById("m_action").value = 'do_w' + numact;
+                sendAction();
             } else {
                 window.localStorage.setItem('week' + week + '_actw' + numact + '_done', '0');
-                sendAction('undo_w' + numact);
+                document.getElementById("m_action").value = 'undo_' + numact;
+                sendAction();
             }
         }
 
@@ -206,10 +210,12 @@
             if (document.getElementById('act' + numact).checked) {
                 window.localStorage.setItem('week' + week + '_act' + i + '_done', '1');
                 $('#row_act' + numact).addClass('animated pulse');
-                sendAction('do' + numact);
+                document.getElementById("m_action").value = 'do' + numact;
+                sendAction();
             } else {
                 window.localStorage.setItem('week' + week + '_act' + i + '_done', '0');
-                sendAction('undo' + numact);
+                document.getElementById("m_action").value = 'undo' + numact;
+                sendAction();
             }
         }
 

@@ -21,8 +21,8 @@ function functionLogout() {
 
 function sendAction(act_to_send) {    
     // Check if browser is connected, otherwise don't send the data
+    this.setLogInfo();        
     if (navigator.onLine) {
-        this.setLogInfo();        
         document.getElementById("m_action").value = act_to_send;
 
         var form_data = new FormData(document.getElementById("action_form"));

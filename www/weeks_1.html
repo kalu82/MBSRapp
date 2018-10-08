@@ -29,6 +29,7 @@
     <script src="js/jquery-3.2.1.min.js"></script>
     <script src="js/tools.js"></script>
     <script src="js/checksController.js"></script>
+    <script src="js/player_function.js"></script>
 
     <!-- Check if user is logged; otherwise, go to login page -->
     <script>
@@ -58,7 +59,7 @@
                         <div class="container">
                             <div class="row" id="row_act1">
                                 <div class="col">
-                                    <input type="checkbox" name="act1" id="act1" onclick="check_act_1();" autocomplete="off"> Body scan (34 minuti)
+                                    <input type="checkbox" name="act1" id="act1" onclick="check_act(1);" autocomplete="off"> Body scan (34 minuti)
                                     <br>
                                     <audio id="trackBS" src="mbsr_tracks/body_scan.mp3" type="audio/mp3">Your browser does not support HTML5 audio.</audio>
                                     <div class="btn-group" data-toggle="buttons">
@@ -78,14 +79,14 @@
 
                             <div class="row" id="row_act2">
                                 <div class="col">
-                                    <input type="checkbox" name="act2" id="act2" onclick="check_act_2();" autocomplete="off"> Diario della pratica
+                                    <input type="checkbox" name="act2" id="act2" onclick="check_act(2);" autocomplete="off"> Diario della pratica
                                     <p></p>
                                 </div>
                             </div>
 
                             <div class="row" id="row_act3">
                                 <div class="col">
-                                    <input type="checkbox" name="act3" id="act3" onclick="check_act_3();" autocomplete="off"> Esegui un’attività quotidiana in piena consapevolezza.
+                                    <input type="checkbox" name="act3" id="act3" onclick="check_act(3);" autocomplete="off"> Esegui un’attività quotidiana in piena consapevolezza.
                                     <p></p>
                                 </div>
                             </div>
@@ -100,11 +101,11 @@
                 <div class="card animated fadeInLeft">
                     <h4 class="card-header primary-color white-text">Altre attività da fare entro il prossimo incontro</h4>
                     <div class="card-body">
-                        <input type="checkbox" name="actw1" id="actw1" onclick="check_actw1();"> Lettura della settimana
+                        <input type="checkbox" name="actw1" id="actw1" onclick="check_actw(1);"> Lettura della settimana
                         <br>
-                        <input type="checkbox" name="actw2" id="actw2" onclick="check_actw2();"> Un pasto consapevole
+                        <input type="checkbox" name="actw2" id="actw2" onclick="check_actw(2);"> Un pasto consapevole
                         <br>
-                        <input type="checkbox" name="actw3" id="actw3" onclick="check_actw3();"> Esercizio dei 9 punti
+                        <input type="checkbox" name="actw3" id="actw3" onclick="check_actw(3);"> Esercizio dei 9 punti
                         <br>
                     </div>
                 </div>

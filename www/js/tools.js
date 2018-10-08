@@ -88,6 +88,6 @@ function setLogInfo() {
     document.getElementById("m_sec").value = currentdate.getSeconds().toString();
     document.getElementById("m_timestring").value = actiondate.toString();
 
-    document.getElementById("m_playingTrack").value = "none";
-    document.getElementById("m_progressTrack").value = "99";
+    document.getElementById("m_playingTrack").value = what_is_playing;
+    document.getElementById("m_progressTrack").value = progression_playing_track;
 }

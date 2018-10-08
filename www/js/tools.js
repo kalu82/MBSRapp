@@ -21,35 +21,7 @@ function functionLogout() {
 
 function sendAction(act_to_send) {    
     // Check if browser is connected, otherwise don't send the data
-    var currentdate = new Date();
-    var today = Math.ceil((now.getTime() - new Date(window.localStorage.getItem('mbsr_week_' + week)).getTime()) / (1000 * 3600 * 24));
-
-    var actiondate = currentdate.getDate() + "-"
-        + (currentdate.getMonth() + 1) + "-"
-        + currentdate.getFullYear() + " "
-        + currentdate.getHours() + ":"
-        + currentdate.getMinutes() + ":"
-        + currentdate.getSeconds();
-
-    // Set the log information
-    document.getElementById("m_sent").value = "";
-    document.getElementById("m_id").value = window.localStorage.getItem("id");
-    document.getElementById("m_username").value = window.localStorage.getItem("username");
-    document.getElementById("m_action").value = act_to_send;
-    document.getElementById("m_week").value = week;
-    document.getElementById("m_day").value = today;
-    document.getElementById("m_device").value = "app";
-    document.getElementById("m_date").value = currentdate.getDate().toString();
-    document.getElementById("m_month").value = (currentdate.getMonth() + 1).toString();
-    document.getElementById("m_year").value = currentdate.getFullYear().toString();
-    document.getElementById("m_hour").value = currentdate.getHours().toString();
-    document.getElementById("m_min").value = currentdate.getMinutes().toString();
-    document.getElementById("m_sec").value = currentdate.getSeconds().toString();
-    document.getElementById("m_timestring").value = actiondate.toString();
-
-    document.getElementById("m_playingTrack").value = what_is_playing;
-    document.getElementById("m_progressTrack").value = progression_playing_track;
-
+    this.setLogInfo();        
     if (navigator.onLine) {
         document.getElementById("m_action").value = act_to_send;
 
@@ -105,3 +77,27 @@ function sendActionFromTxt() {
 function setLogText() {
     document.getElementById("log_text").value = document.getElementById("m_sent").value + "\t" + document.getElementById("m_id").value + "\t" + document.getElementById("m_username").value + "\t" + document.getElementById("m_action").value + "\t" + document.getElementById("m_week").value + "\t" + document.getElementById("m_day").value + "\t" + document.getElementById("m_device").value + "\t" + document.getElementById("m_date").value + "\t" + document.getElementById("m_month").value + "\t" + document.getElementById("m_year").value + "\t" + document.getElementById("m_hour").value + "\t" + document.getElementById("m_min").value + "\t" + document.getElementById("m_sec").value + "\t" + document.getElementById("m_timestring").value + "\t" + document.getElementById("m_playingTrack").value + "\t" + document.getElementById("m_progressTrack").value;
 }
+
+function setLogInfo() {
+    var currentdate = new Date();
+    
+    var actiondate = currentdate.getDate() + "-"
+        + (currentdate.getMonth() + 1) + "-"
+        + currentdate.getFullYear() + " "
+        + currentdate.getHours() + ":"
+        + currentdate.getMinutes() + ":"
+        + currentdate.getSeconds();
+    
+    // Set the log information
+    document.getElementById("m_date").value = currentdate.getDate().toString();
+    document.getElementById("m_month").value = (currentdate.getMonth() + 1).toString();
+    document.getElementById("m_year").value = currentdate.getFullYear().toString();
+    document.getElementById("m_hour").value = currentdate.getHours().toString();
+    document.getElementById("m_min").value = currentdate.getMinutes().toString();
+    document.getElementById("m_sec").value = currentdate.getSeconds().toString();
+    document.getElementById("m_timestring").value = actiondate.toString();
+
+    document.getElementById("m_playingTrack").value = "prova"; // what_is_playing;
+    document.getElementById("m_progressTrack").value = "99"; //progression_playing_track;
+}
+

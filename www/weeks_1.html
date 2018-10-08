@@ -60,7 +60,7 @@
         <input type="hidden" id="m_playingTrack" name="m_playingTrack" value="">
         <input type="hidden" id="m_progressTrack" name="m_progressTrack" value="">
     </form>
-    
+
     <!-- Hidden button and text to log data -->
     <div hidden>
         <input type="text" id="log_text" />
@@ -199,6 +199,20 @@
             </div>
         </div>
     </div>
+
+    <script>
+        // Check which day of the week is the actual one
+        var now = new Date();
+        var weekStart = new Date(window.localStorage.getItem('mbsr_week_' + week));
+        var weekday = Math.ceil((now.getTime() - weekStart.getTime()) / (1000 * 3600 * 24));
+
+        // Set the log information
+        document.getElementById("m_id").value = window.localStorage.getItem("id");
+        document.getElementById("m_username").value = window.localStorage.getItem("username");
+        document.getElementById("m_week").value = week.toString();
+        document.getElementById("m_day").value = weekday;
+        document.getElementById("m_sent").value = "";
+    </script>
 
     <script type="text/javascript" src="cordova.js"></script>
     <script type="text/javascript" src="js/txtlog.js"></script>

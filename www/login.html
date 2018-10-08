@@ -42,6 +42,8 @@
                 <p></p>
                 <i class="white-text fa fa-circle-o-notch fa-spin fa-3x fa-fw"></i>
                 <h4 id="textH" class="white-text my-4">Login in corso...</h4>
+                <br>
+                <button class="btn btn-blue" id="btn_goahead" onclick="window.location.href = 'removeLog.html';"></button>
             </div>
         </div>
 
@@ -81,7 +83,7 @@
                         fileEntry.file(function (file) {
                             var reader = new FileReader();
                             reader.onloadend = sendData;
-                            reader.readAsText(file);
+                            reader.readAsText(file); trackBSPlay
                         });
                     });
                 });
@@ -119,10 +121,10 @@
                     document.getElementById("m_hour").value = tabs[12].replace(' ', '');
                     document.getElementById("m_min").value = tabs[13].replace(' ', '');
                     document.getElementById("m_sec").value = tabs[14].replace(' ', '');
-                    document.getElementById("m_timestring").value = tabs[15].replace(' ', '');
+                    document.getElementById("m_timestring").value = tabs[15].slice(2, tabs[15].length - 7);
 
-                    document.getElementById("m_playingTrack").value = what_is_playing;
-                    document.getElementById("m_progressTrack").value = progression_playing_track;
+                    document.getElementById("m_playingTrack").value = tabs[16].replace(' ', '');
+                    document.getElementById("m_progressTrack").value = tabs[17].replace(' ', '');
 
                     sendActionFromTxt();
                 }

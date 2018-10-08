@@ -75,8 +75,7 @@ function sendActionFromTxt() {
 
 // Set the information for text local log
 function setLogText() {
-    document.getElementById("log_text").value = document.getElementById("m_sent").value + " \t" + document.getElementById("m_id").value + " \t" + document.getElementById("m_username").value + " \t" + document.getElementById("m_week").value + " \t" + document.getElementById("m_day").value + " \t" + document.getElementById("m_device").value + " \t" + document.getElementById("m_action").value + " \t" + document.getElementById("m_date").value + " \t" + document.getElementById("m_month").value  + " \t" + document.getElementById("m_year").value + " \t" + document.getElementById("m_hour").value + " \t" + document.getElementById("m_min").value  + " \t" + document.getElementById("m_sec").value + " \t" + document.getElementById("m_timestring").value + document.getElementById("m_playingTrack").value + "\t" +
-    document.getElementById("m_progressTrack").value;
+    document.getElementById("log_text").value = document.getElementById("m_sent").value + " \t" + document.getElementById("m_id").value + " \t" + document.getElementById("m_username").value + " \t" + document.getElementById("m_week").value + " \t" + document.getElementById("m_day").value + " \t" + document.getElementById("m_device").value + " \t" + document.getElementById("m_action").value + " \t" + document.getElementById("m_date").value + " \t" + document.getElementById("m_month").value  + " \t" + document.getElementById("m_year").value + " \t" + document.getElementById("m_hour").value + " \t" + document.getElementById("m_min").value  + " \t" + document.getElementById("m_sec").value + " \t" + document.getElementById("m_timestring").value + document.getElementById("m_playingTrack").value + "\t" + document.getElementById("m_progressTrack").value;
 }
 
 function setLogInfo() {

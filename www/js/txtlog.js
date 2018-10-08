@@ -35,6 +35,7 @@ function writeLog(str) {
         var blob = new Blob([log], { type: 'text/plain' });
         fileWriter.write(blob);
         console.log("ok, in theory i worked");
+        alert("LOG" + log);
     }, fail);
 }
 

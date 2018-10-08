@@ -208,12 +208,12 @@
 
         function check_act(numact) {
             if (document.getElementById('act' + numact).checked) {
-                window.localStorage.setItem('week' + week + '_act' + i + '_done', '1');
+                window.localStorage.setItem('week' + week + '_act' + numact + '_done', '1');
                 $('#row_act' + numact).addClass('animated pulse');
                 document.getElementById("m_action").value = 'do' + numact;
                 sendAction();
             } else {
-                window.localStorage.setItem('week' + week + '_act' + i + '_done', '0');
+                window.localStorage.setItem('week' + week + '_act' + numact + '_done', '0');
                 document.getElementById("m_action").value = 'undo' + numact;
                 sendAction();
             }

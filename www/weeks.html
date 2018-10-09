@@ -42,7 +42,15 @@
         <div class="row">
             <div class="col">
                 <!-- Heading -->
-                <p></p><h2 class="display-5 font-bold text-center white-text mb-2 animated fadeInRight">SCEGLI UNA SETTIMANA</h2>
+                <br>
+                <h4 class="display-6 text-center blue-text mb-2 animated fadeInDown">Benvenuto <span id="print_userName"></span></h4>
+                <h4 class="display-6 text-center blue-text mb-2 animated fadeInDown">sei alla settimana <span id="print_week"></span>
+                    del protocollo</h4><br>
+                <h2 class="display-5 font-bold text-center white-text mb-2 animated fadeInRight">SCEGLI UNA SETTIMANA</h2>
+                <div class="ftext-center white-text animated fadeInRight">Sono disponibili per la selezione solo le pagine relative
+                    alle settimane già attivate.</div><br>
+                    
+                <h2 class="display-5 font-bold text-center white-text mb-2 animated fadeInRight">SCEGLI UNA SETTIMANA</h2>
                 <div class="ftext-center white-text animated fadeInRight">Sono disponibili per la selezione solo le pagine relative alle settimane già attivate.</div>
                 <br>
                 <p></p>
@@ -57,21 +65,6 @@
                     <button class="btn btn-primary btn-lg btn-block" id="w7" name="w7" onclick="location.href='weeks_7.html'">Settimana 7</button>
                     <button class="btn btn-primary btn-lg btn-block" id="w8" name="w8" onclick="location.href='weeks_8.html'">Settimana 8</button>
                 </div>
-
-                <!--Panel-->
-                <div class="row">
-                    <div class="col text-center">
-                        <button type="button" class="btn btn-flat btn-lg" style="background-color: Transparent; background-repeat:no-repeat; border: none; cursor:pointer; overflow: hidden; outline:none;"
-                            onclick="location.href='weeks.html'">
-                            <i class="fa fa-home"></i> Home</button>
-                    </div>
-                    <div class="col text-center">
-                        <button type="button" class="btn btn-flat btn-lg" style="background-color: Transparent; background-repeat:no-repeat; border: none; cursor:pointer; overflow: hidden; outline:none;"
-                            onclick="functionLogout();">
-                            <i class="fa fa-sign-out"></i> Logout</button>
-                    </div>
-                </div>
-                <p></p>
                 <!--/.Panel-->
             </div>
         </div>
@@ -95,6 +88,9 @@
     </div>
 
     <script>
+        document.getElementById('print_userName').innerHTML = Cookies.get('mbsr_user_email').toString();
+        document.getElementById('print_week').innerHTML = Cookies.get('actual_week').toString();
+
         function check_dates() {
             
             // Check which week is the actual one

@@ -145,7 +145,6 @@ function startCount(medDuration) {
     what_is_playing = medDuration;
     progression_playing_track = 0;
     timerSec = 0;
-    timedCountMeditation(medDuration);
 }
 
 function stopCount(medDuration) {
@@ -157,7 +156,6 @@ function stopCount(medDuration) {
     $('#btn_stop' + medDuration).prop('disabled', true);
     resetPlayerToCheck();
     clearTimeout(timerMed);
-    stopCountTimeoutPlayer();
     timerSec = 0;
 }
 
@@ -169,7 +167,6 @@ function pauseCount(medDuration) {
     $('#btn_pause' + medDuration).prop('disabled', true);
     $('#btn_stop' + medDuration).prop('disabled', false);
     clearTimeout(timerMed);
-    pauseCountTimeoutPlayer();
 }
 
 function endCount(medDuration) {
@@ -180,7 +177,6 @@ function endCount(medDuration) {
     $('#btn_pause' + medDuration).prop('disabled', true);
     $('#btn_stop' + medDuration).prop('disabled', true);
     resetPlayerToCheck();
-    stopCountTimeoutPlayer();
     clearTimeout(timerMed);
     timerSec = 0;
     $('#act1').prop('checked', true);

@@ -41,44 +41,50 @@
     <div class="intro container-fluid d-flex justify-content-center">
         <div class="row">
             <div class="col">
-                <!-- Heading -->
-                <br>
-                <h4 class="display-6 text-center blue-text mb-2 animated fadeInDown">Benvenuto <span id="print_userName"></span></h4>
-                <h4 class="display-6 text-center blue-text mb-2 animated fadeInDown">sei alla settimana <span id="print_week"></span>
-                    del protocollo</h4><br>
-                <h2 class="display-5 font-bold text-center white-text mb-2 animated fadeInRight">SCEGLI UNA SETTIMANA</h2>
-                <div class="ftext-center white-text animated fadeInRight">Sono disponibili per la selezione solo le
-                    pagine relative
-                    alle settimane già attivate.</div><br>
-
-                <div class="animated fadeInLeft">
-                    <button class="btn btn-primary btn-lg btn-block" id="w1" name="w1" onclick="location.href='weeks_1.html'">Settimana
-                        1</button>
-                    <button class="btn btn-primary btn-lg btn-block" id="w2" name="w2" onclick="location.href='weeks_2.html'"
-                        disabled>Settimana
-                        2</button>
-                    <button class="btn btn-primary btn-lg btn-block" id="w3" name="w3" onclick="location.href='weeks_3.html'"
-                        disabled>Settimana
-                        3</button>
-                    <button class="btn btn-primary btn-lg btn-block" id="w4" name="w4" onclick="location.href='weeks_4.html'"
-                        disabled>Settimana
-                        4</button>
-                    <button class="btn btn-primary btn-lg btn-block" id="w5" name="w5" onclick="location.href='weeks_5.html'"
-                        disabled>Settimana
-                        5</button>
-                    <button class="btn btn-primary btn-lg btn-block" id="w6" name="w6" onclick="location.href='weeks_6.html'"
-                        disabled>Settimana
-                        6</button>
-                    <button class="btn btn-primary btn-lg btn-block" id="w7" name="w7" onclick="location.href='weeks_7.html'"
-                        disabled>Settimana
-                        7</button>
-                    <button class="btn btn-primary btn-lg btn-block" id="w8" name="w8" onclick="location.href='weeks_8.html'"
-                        disabled>Settimana
-                        8</button>
+                <div class="row">
+                    <!-- Heading -->
+                    <br>
+                    <h4 class="display-6 text-center blue-text mb-2 animated fadeInDown">Benvenuto <span id="print_userName"></span></h4>
+                    <h4 class="display-6 text-center blue-text mb-2 animated fadeInDown">sei alla settimana <span id="print_week"></span>
+                        del protocollo</h4><br>
+                    <h2 class="display-5 font-bold text-center white-text mb-2 animated fadeInRight">SCEGLI UNA
+                        SETTIMANA</h2>
+                    <div class="ftext-center white-text animated fadeInRight">Sono disponibili per la selezione solo le
+                        pagine relative
+                        alle settimane già attivate.</div><br>
                 </div>
-                <!--/.Panel-->
+                <div class="animated fadeInLeft">
+                    <div class="row">
+                        <div class="col"><button class="btn btn-primary btn-lg btn-block" id="w1" name="w1" onclick="location.href='weeks_1.html'">Settimana
+                            1</button></div>
+                        <div class="col"><button class="btn btn-primary btn-lg btn-block" id="w2" name="w2" onclick="location.href='weeks_2.html'" disabled>Settimana
+                            2</button></div>
+                    </div>
+                    <div class="row">
+                        <div class="col"><button class="btn btn-primary btn-lg btn-block" id="w3" name="w3" onclick="location.href='weeks_3.html'" disabled>Settimana
+                            3</button></div>
+                        <div class="col"><button class="btn btn-primary btn-lg btn-block" id="w4" name="w4" onclick="location.href='weeks_4.html'" disabled>Settimana
+                            4</button></div>
+                    </div>
+                    <div class="row">
+                        <div class="col"><button class="btn btn-primary btn-lg btn-block" id="w5" name="w5" onclick="location.href='weeks_5.html'" disabled>Settimana
+                            5</button></div>
+                        <div class="col"><button class="btn btn-primary btn-lg btn-block" id="w6" name="w6" onclick="location.href='weeks_6.html'" disabled>Settimana
+                            6</button></div>
+                    </div>
+                    <div class="row">
+                        <div class="col"><button class="btn btn-primary btn-lg btn-block" id="w7" name="w7" onclick="location.href='weeks_7.html'"
+                            disabled>Settimana
+                            7</button></div>
+                        <div class="col"><button class="btn btn-primary btn-lg btn-block" id="w8" name="w8" onclick="location.href='weeks_8.html'"
+                            disabled>Settimana
+                            8</button></div>
+                    </div>
+                </div>
             </div>
+            <!--/.Panel-->
         </div>
+    </div>
     </div>
 
     <script>
@@ -91,46 +97,10 @@
             for (var w = 2; w <= 8; w++) {
                 var weekStart = new Date(window.localStorage.getItem('mbsr_week_' + w));
                 if ((now - new Date(window.localStorage.getItem("mbsr_week_" + w).replace(/-/g, '/'))) / (1000 * 3600 * 24) > 0) {
-                    $('#w'+w).prop('disabled', false);
+                    $('#w' + w).prop('disabled', false);
                     document.getElementById('print_week').innerHTML = w;
                 }
             }
-
-            // var weekStart = new Date(window.localStorage.getItem('mbsr_week_2'));
-            // if ((now - new Date(window.localStorage.getItem("mbsr_week_2").replace(/-/g, '/'))) / (1000 * 3600 * 24) > 0) {
-            //     $('#w2').prop('disabled', false);
-            //     document.getElementById('print_week').innerHTML = "2";
-            // }
-            // var weekStart = new Date(window.localStorage.getItem('mbsr_week_3'));
-            // if ((now - new Date(window.localStorage.getItem("mbsr_week_3").replace(/-/g, '/'))) / (1000 * 3600 * 24) > 0) {
-            //     $('#w3').prop('disabled', false);
-            //     document.getElementById('print_week').innerHTML = "3";
-            // }
-            // var weekStart = new Date(window.localStorage.getItem('mbsr_week_4'));
-            // if ((now - new Date(window.localStorage.getItem("mbsr_week_4").replace(/-/g, '/'))) / (1000 * 3600 * 24) > 0) {
-            //     $('#w4').prop('disabled', false);
-            //     document.getElementById('print_week').innerHTML = "4";
-            // }
-            // var weekStart = new Date(window.localStorage.getItem('mbsr_week_5'));
-            // if ((now - new Date(window.localStorage.getItem("mbsr_week_5").replace(/-/g, '/'))) / (1000 * 3600 * 24) > 0) {
-            //     $('#w5').prop('disabled', false);
-            //     document.getElementById('print_week').innerHTML = "5";
-            // }
-            // var weekStart = new Date(window.localStorage.getItem('mbsr_week_6'));
-            // if ((now - new Date(window.localStorage.getItem("mbsr_week_6").replace(/-/g, '/'))) / (1000 * 3600 * 24) > 0) {
-            //     $('#w6').prop('disabled', false);
-            //     document.getElementById('print_week').innerHTML = "6";
-            // }
-            // var weekStart = new Date(window.localStorage.getItem('mbsr_week_7'));
-            // if ((now - new Date(window.localStorage.getItem("mbsr_week_7").replace(/-/g, '/'))) / (1000 * 3600 * 24) > 0) {
-            //     $('#w7').prop('disabled', false);
-            //     document.getElementById('print_week').innerHTML = "7";
-            // }
-            // var weekStart = new Date(window.localStorage.getItem('mbsr_week_8'));
-            // if ((now - new Date(window.localStorage.getItem("mbsr_week_8").replace(/-/g, '/'))) / (1000 * 3600 * 24) > 0) {
-            //     $('#w8').prop('disabled', false);
-            //     document.getElementById('print_week').innerHTML = "8";
-            // }
         }
     </script>
 

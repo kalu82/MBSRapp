@@ -54,19 +54,26 @@
                 <div class="animated fadeInLeft">
                     <button class="btn btn-primary btn-lg btn-block" id="w1" name="w1" onclick="location.href='weeks_1.html'">Settimana
                         1</button>
-                    <button class="btn btn-primary btn-lg btn-block" id="w2" name="w2" onclick="location.href='weeks_2.html'" disabled>Settimana
+                    <button class="btn btn-primary btn-lg btn-block" id="w2" name="w2" onclick="location.href='weeks_2.html'"
+                        disabled>Settimana
                         2</button>
-                    <button class="btn btn-primary btn-lg btn-block" id="w3" name="w3" onclick="location.href='weeks_3.html'" disabled>Settimana
+                    <button class="btn btn-primary btn-lg btn-block" id="w3" name="w3" onclick="location.href='weeks_3.html'"
+                        disabled>Settimana
                         3</button>
-                    <button class="btn btn-primary btn-lg btn-block" id="w4" name="w4" onclick="location.href='weeks_4.html'" disabled>Settimana
+                    <button class="btn btn-primary btn-lg btn-block" id="w4" name="w4" onclick="location.href='weeks_4.html'"
+                        disabled>Settimana
                         4</button>
-                    <button class="btn btn-primary btn-lg btn-block" id="w5" name="w5" onclick="location.href='weeks_5.html'" disabled>Settimana
+                    <button class="btn btn-primary btn-lg btn-block" id="w5" name="w5" onclick="location.href='weeks_5.html'"
+                        disabled>Settimana
                         5</button>
-                    <button class="btn btn-primary btn-lg btn-block" id="w6" name="w6" onclick="location.href='weeks_6.html'" disabled>Settimana
+                    <button class="btn btn-primary btn-lg btn-block" id="w6" name="w6" onclick="location.href='weeks_6.html'"
+                        disabled>Settimana
                         6</button>
-                    <button class="btn btn-primary btn-lg btn-block" id="w7" name="w7" onclick="location.href='weeks_7.html'" disabled>Settimana
+                    <button class="btn btn-primary btn-lg btn-block" id="w7" name="w7" onclick="location.href='weeks_7.html'"
+                        disabled>Settimana
                         7</button>
-                    <button class="btn btn-primary btn-lg btn-block" id="w8" name="w8" onclick="location.href='weeks_8.html'" disabled>Settimana
+                    <button class="btn btn-primary btn-lg btn-block" id="w8" name="w8" onclick="location.href='weeks_8.html'"
+                        disabled>Settimana
                         8</button>
                 </div>
                 <!--/.Panel-->
@@ -83,6 +90,10 @@
 
             var weekStart = new Date(window.localStorage.getItem('mbsr_week_2'));
             alert(window.localStorage.getItem('mbsr_week_2').toString());
+            alert(window.localStorage.getItem('mbsr_week_2').getTime());
+            alert(new Date().getTime());
+            alert(Math.ceil((new Date().getTime() - weekStart.getTime()) / (1000)));
+
             if (Math.ceil((new Date().getTime() - weekStart.getTime()) / (1000)) < 0) {
                 $('#w2').prop('disabled', true);
                 window.localStorage.setItem('actual_week', '2');
@@ -117,8 +128,8 @@
                 $('#w8').prop('disabled', true);
                 window.localStorage.setItem('actual_week', '8');
             }
-        } 
-        
+        }
+
         document.getElementById('print_userName').innerHTML = window.localStorage.getItem("username");
         document.getElementById('print_week').innerHTML = window.localStorage.getItem("actual_week");        
     </script>

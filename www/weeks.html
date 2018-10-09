@@ -75,9 +75,6 @@
     </div>
 
     <script>
-        document.getElementById('print_userName').innerHTML = window.localStorage.getItem("username");
-        document.getElementById('print_week').innerHTML = window.localStorage.getItem("actual_week");
-
         function check_dates() {
             window.localStorage.setItem('actual_week', '1');
 
@@ -118,9 +115,11 @@
             if (Math.ceil((new Date().getTime() - weekStart.getTime()) / (1000)) < 0) {
                 $('#w8').prop('disabled', true);
                 window.localStorage.setItem('actual_week', '8');
-                alert(window.localStorage.getItem('actual_week').toString());
             }
-        }
+        } 
+        
+        document.getElementById('print_userName').innerHTML = window.localStorage.getItem("username");
+        document.getElementById('print_week').innerHTML = window.localStorage.getItem("actual_week");        
     </script>
 
 </body>

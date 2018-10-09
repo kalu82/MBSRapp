@@ -2,7 +2,7 @@
 <widget id="com.mbsrapp" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
     <name>MBSR_app</name>
     <description>
-        Hello World sample application that responds to the deviceready event.
+        An application to manage MBSR courses.
     </description>
     <author email="support@phonegap.com" href="http://phonegap.com">
         PhoneGap Team

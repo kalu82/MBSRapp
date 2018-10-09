@@ -82,51 +82,48 @@
     </div>
 
     <script>
-        function check_dates() {
-            window.localStorage.setItem('actual_week', '1');
+        document.getElementById('print_userName').innerHTML = window.localStorage.getItem("username");
 
+        function check_dates() {
             // Check which week is the actual one
             var now = new Date();
 
             var weekStart = new Date(window.localStorage.getItem('mbsr_week_2'));
             if ((now - new Date(window.localStorage.getItem("mbsr_week_2").replace(/-/g, '/'))) / (1000 * 3600 * 24) > 0) {
                 $('#w2').prop('disabled', false);
-                window.localStorage.setItem('actual_week', '2');
+                document.getElementById('print_week').innerHTML = "2";
             }
             var weekStart = new Date(window.localStorage.getItem('mbsr_week_3'));
             if ((now - new Date(window.localStorage.getItem("mbsr_week_3").replace(/-/g, '/'))) / (1000 * 3600 * 24) > 0) {
                 $('#w3').prop('disabled', false);
-                window.localStorage.setItem('actual_week', '3');
+                document.getElementById('print_week').innerHTML = "3";
             }
             var weekStart = new Date(window.localStorage.getItem('mbsr_week_4'));
             if ((now - new Date(window.localStorage.getItem("mbsr_week_4").replace(/-/g, '/'))) / (1000 * 3600 * 24) > 0) {
                 $('#w4').prop('disabled', false);
-                window.localStorage.setItem('actual_week', '4');
+                document.getElementById('print_week').innerHTML = "4";
             }
             var weekStart = new Date(window.localStorage.getItem('mbsr_week_5'));
             if ((now - new Date(window.localStorage.getItem("mbsr_week_5").replace(/-/g, '/'))) / (1000 * 3600 * 24) > 0) {
                 $('#w5').prop('disabled', false);
-                window.localStorage.setItem('actual_week', '5');
+                document.getElementById('print_week').innerHTML = "5";
             }
             var weekStart = new Date(window.localStorage.getItem('mbsr_week_6'));
             if ((now - new Date(window.localStorage.getItem("mbsr_week_6").replace(/-/g, '/'))) / (1000 * 3600 * 24) > 0) {
                 $('#w6').prop('disabled', false);
-                window.localStorage.setItem('actual_week', '6');
+                document.getElementById('print_week').innerHTML = "6";
             }
             var weekStart = new Date(window.localStorage.getItem('mbsr_week_7'));
             if ((now - new Date(window.localStorage.getItem("mbsr_week_7").replace(/-/g, '/'))) / (1000 * 3600 * 24) > 0) {
                 $('#w7').prop('disabled', false);
-                window.localStorage.setItem('actual_week', '7');
+                document.getElementById('print_week').innerHTML = "7";
             }
             var weekStart = new Date(window.localStorage.getItem('mbsr_week_8'));
             if ((now - new Date(window.localStorage.getItem("mbsr_week_8").replace(/-/g, '/'))) / (1000 * 3600 * 24) > 0) {
                 $('#w8').prop('disabled', false);
-                window.localStorage.setItem('actual_week', '8');
+                document.getElementById('print_week').innerHTML = "8";
             }
         }
-
-        document.getElementById('print_userName').innerHTML = window.localStorage.getItem("username");
-        document.getElementById('print_week').innerHTML = window.localStorage.getItem("actual_week");        
     </script>
 
 </body>

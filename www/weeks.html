@@ -42,11 +42,14 @@
         <div class="row d-flex justify-content-center">
             <div class="col">
                 <!-- Heading -->
-                <div class="ftext-center white-text mb-2 animated fadeInDown">Benvenuto <span id="print_userName"></span></div><br>
+                <br>
+                <div class="ftext-center white-text mb-2 animated fadeInDown">Benvenuto <span id="print_userName"></span></div>
                 <div class="ftext-center white-text mb-2 animated fadeInDown">sei alla settimana <span id="print_week"></span>
-                    del protocollo</div><br>
+                    del protocollo</div>
+                <br>
                 <h2 class="display-5 font-bold text-center white-text mb-2 animated fadeInRight">SCEGLI UNA SETTIMANA</h2>
-                <div class="ftext-center white-text animated fadeInRight">Sono disponibili solo le settimane già attivate.</div><br>
+                <div class="ftext-center white-text animated fadeInRight">Sono disponibili solo le settimane già
+                    attivate.</div><br>
 
                 <div class="animated fadeInLeft">
                     <button class="btn btn-primary btn-lg btn-block" id="w1" name="w1" onclick="location.href='weeks_1.html'">Settimana
@@ -72,10 +75,10 @@
                     <button class="btn btn-primary btn-lg btn-block" id="w8" name="w8" onclick="location.href='weeks_8.html'"
                         disabled>Settimana
                         8</button>
+                    <br><p></p>
                 </div>
                 <!--/.Panel-->
             </div>
-            <p></p>
         </div>
     </div>
 
@@ -89,7 +92,7 @@
             for (var w = 2; w <= 8; w++) {
                 var weekStart = new Date(window.localStorage.getItem('mbsr_week_' + w));
                 if ((now - new Date(window.localStorage.getItem("mbsr_week_" + w).replace(/-/g, '/'))) / (1000 * 3600 * 24) > 0) {
-                    $('#w'+w).prop('disabled', false);
+                    $('#w' + w).prop('disabled', false);
                     document.getElementById('print_week').innerHTML = w;
                 }
             }

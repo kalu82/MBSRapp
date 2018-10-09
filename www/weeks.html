@@ -118,6 +118,7 @@
             if (Math.ceil((new Date().getTime() - weekStart.getTime()) / (1000)) < 0) {
                 $('#w8').prop('disabled', true);
                 window.localStorage.setItem('actual_week', '8');
+                alert(window.localStorage.getItem('actual_week').toString());
             }
         }
     </script>

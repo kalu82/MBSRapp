@@ -82,36 +82,35 @@
                 <p></p>
                 <!-- Heading -->
                 <h2 class="display-5 font-bold text-center white-text mb-2 animated fadeInDown">SETTIMA SETTIMANA</h2><br>
-                
+    
                 <!--Panel-->
                 <div class="card animated fadeInLeft">
                     <h4 class="card-header primary-color white-text">Compiti giornalieri</h4>
-                
+    
                     <div class="card-body">
-                
+    
                         <div class="container">
-                
+    
                             <div class="row" id="row_act1">
                                 <div class="col">
-                                    <audio id="bell" src="mbsr_tracks/bell.mp3" type="audio/mp3">Your browser does not
-                                        support HTML5 audio.</audio>
-                
-                                    <input type="checkbox" name="act1" id="act1" onclick="check_act_1();" autocomplete="off">
+                                    <input type="checkbox" name="act1" id="act1" onclick="check_act(1);" autocomplete="off">
                                     Alternativamente:<p></p>
                                     <p></p>
-                
+    
                                     <ul class="fa-ul">
                                         <li><i class="fa-li fa fa-square"></i>Pratica a scelta senza istruzioni (45
                                             min)</li>
                                         <li>
                                             <div class="btn-group">
-                                                <button class="btn btn-blue" id="btn_play45" onclick="startCount(45)"><i class="fa fa-play"></i></button>
-                                                <button class="btn btn-yellow" id="btn_pause45" onclick="pauseCount(45)" disabled><i
-                                                        class="fa fa-pause"></i></button>
-                                                <button class="btn btn-red" id="btn_stop45" onclick="stopCount(45)" disabled><i class="fa fa-stop"></i></button>
+                                                <button class="btn btn-blue" id="btn_play45" onclick="startCount(45)"><i
+                                                        class="fa fa-play"></i></button>
+                                                <button class="btn btn-yellow" id="btn_pause45" onclick="pauseCount(45)"
+                                                    disabled><i class="fa fa-pause"></i></button>
+                                                <button class="btn btn-red" id="btn_stop45" onclick="stopCount(45)"
+                                                    disabled><i class="fa fa-stop"></i></button>
                                             </div>
                                         </li><br>
-                
+    
                                         <li><i class="fa-li fa fa-square"></i>Oppure le due pratiche:<p></p>
                                         </li>
                                         <li>
@@ -120,32 +119,34 @@
                                                     (30 min)</li>
                                                 <li>
                                                     <div class="btn-group">
-                                                        <button class="btn btn-blue" id="btn_play30" onclick="startCount(30)"><i class="fa fa-play"></i></button>
+                                                        <button class="btn btn-blue" id="btn_play30" onclick="startCount(30)"><i
+                                                                class="fa fa-play"></i></button>
                                                         <button class="btn btn-yellow" id="btn_pause30" onclick="pauseCount(30)"
                                                             disabled><i class="fa fa-pause"></i></button>
-                                                        <button class="btn btn-red" id="btn_stop30" onclick="stopCount030()" disabled><i
-                                                                class="fa fa-stop"></i></button>
+                                                        <button class="btn btn-red" id="btn_stop30" onclick="stopCount(30)"
+                                                            disabled><i class="fa fa-stop"></i></button>
                                                     </div>
                                                 </li><br>
-                
+    
                                                 <li><i class="fa-li fa fa-square"></i>Pratica a scelta senza istruzioni
                                                     (15 min)</li>
                                                 <li>
                                                     <div class="btn-group">
-                                                        <button class="btn btn-blue" id="btn_play15" onclick="startCount(15)"><i class="fa fa-play"></i></button>
+                                                        <button class="btn btn-blue" id="btn_play15" onclick="startCount(15)"><i
+                                                                class="fa fa-play"></i></button>
                                                         <button class="btn btn-yellow" id="btn_pause15" onclick="pauseCount(15)"
                                                             disabled><i class="fa fa-pause"></i></button>
-                                                        <button class="btn btn-red" id="btn_stop15" onclick="stopCount(15)" disabled><i
-                                                                class="fa fa-stop"></i></button>
+                                                        <button class="btn btn-red" id="btn_stop15" onclick="stopCount(15)"
+                                                            disabled><i class="fa fa-stop"></i></button>
                                                     </div>
                                                 </li>
                                             </ul>
                                         </li>
                                     </ul>
                                     <p></p>
-                
+    
                                     <p>Se hai problemi a praticare senza istruzioni, qui trovi le varie pratiche:</p>
-                
+    
                                     <ul class="fa-ul">
                                         <li><i class="fa-li fa fa-square"></i>Meditazione sul respiro (13 min)</li>
                                         <li>
@@ -158,7 +159,7 @@
                                                     disabled><i class="fa fa-stop"></i></button>
                                             </div>
                                         </li><br>
-                
+    
                                         <li><i class="fa-li fa fa-square"></i>Meditazione seduta (25 min)</li>
                                         <li>
                                             <div class="btn-group">
@@ -170,7 +171,7 @@
                                                     disabled><i class="fa fa-stop"></i></button>
                                             </div>
                                         </li><br>
-                
+    
                                         <li><i class="fa-li fa fa-square"></i>Body scan (30 min)</li>
                                         <li>
                                             <div class="btn-group">
@@ -182,7 +183,7 @@
                                                     disabled><i class="fa fa-stop"></i></button>
                                             </div>
                                         </li><br>
-                
+    
                                         <li><i class="fa-li fa fa-square"></i>Movimento consapevole (40 min)</li>
                                         <li>
                                             <div class="btn-group">
@@ -197,16 +198,16 @@
                                     </ul>
                                 </div>
                             </div>
-                
+    
                             <br>
-                
+    
                             <div class="row" id="row_act2">
                                 <div class="col">
                                     <input type="checkbox" name="act2" id="act2" onclick="check_act(2);" autocomplete="off">
                                     Diario della pratica<p></p>
                                 </div>
                             </div>
-                
+    
                             <div class="row" id="row_act3">
                                 <div class="col">
                                     <input type="checkbox" name="act3" id="act3" onclick="check_act(3);" autocomplete="off">
@@ -217,9 +218,9 @@
                     </div>
                 </div>
                 <!--/.Panel-->
-                
+    
                 <br>
-                
+    
                 <!--Panel-->
                 <div class="card animated fadeInLeft">
                     <h4 class="card-header primary-color white-text">Altre attività da fare entro il prossimo incontro</h4>
@@ -234,7 +235,7 @@
                 </div>
                 <p></p>
                 <!--/.Panel-->
-
+                
                 <!--Panel-->
                 <div class="row">
                     <div class="col text-center">

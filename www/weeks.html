@@ -94,32 +94,32 @@
                 window.localStorage.setItem('actual_week', '2');
             }
             var weekStart = new Date(window.localStorage.getItem('mbsr_week_3'));
-            if (Math.ceil((new Date().getTime() - weekStart.getTime()) / (1000 * 3600 * 24)) < 0) {
+            if ((now - new Date(window.localStorage.getItem("mbsr_week_3").replace(/-/g, '/'))) / (1000 * 3600 * 24) > 0) {
                 $('#w3').prop('disabled', false);
                 window.localStorage.setItem('actual_week', '3');
             }
             var weekStart = new Date(window.localStorage.getItem('mbsr_week_4'));
-            if (Math.ceil((new Date().getTime() - weekStart.getTime()) / (1000 * 3600 * 24)) < 0) {
+            if ((now - new Date(window.localStorage.getItem("mbsr_week_4").replace(/-/g, '/'))) / (1000 * 3600 * 24) > 0) {
                 $('#w4').prop('disabled', false);
                 window.localStorage.setItem('actual_week', '4');
             }
             var weekStart = new Date(window.localStorage.getItem('mbsr_week_5'));
-            if (Math.ceil((new Date().getTime() - weekStart.getTime()) / (1000)) < 0) {
+            if ((now - new Date(window.localStorage.getItem("mbsr_week_5").replace(/-/g, '/'))) / (1000 * 3600 * 24) > 0) {
                 $('#w5').prop('disabled', false);
                 window.localStorage.setItem('actual_week', '5');
             }
             var weekStart = new Date(window.localStorage.getItem('mbsr_week_6'));
-            if (Math.ceil((new Date().getTime() - weekStart.getTime()) / (1000)) < 0) {
+            if ((now - new Date(window.localStorage.getItem("mbsr_week_6").replace(/-/g, '/'))) / (1000 * 3600 * 24) > 0) {
                 $('#w6').prop('disabled', false);
                 window.localStorage.setItem('actual_week', '6');
             }
             var weekStart = new Date(window.localStorage.getItem('mbsr_week_7'));
-            if (Math.ceil((new Date().getTime() - weekStart.getTime()) / (1000)) < 0) {
+            if ((now - new Date(window.localStorage.getItem("mbsr_week_7").replace(/-/g, '/'))) / (1000 * 3600 * 24) > 0) {
                 $('#w7').prop('disabled', false);
                 window.localStorage.setItem('actual_week', '7');
             }
             var weekStart = new Date(window.localStorage.getItem('mbsr_week_8'));
-            if (Math.ceil((new Date().getTime() - weekStart.getTime()) / (1000)) < 0) {
+            if ((now - new Date(window.localStorage.getItem("mbsr_week_8").replace(/-/g, '/'))) / (1000 * 3600 * 24) > 0) {
                 $('#w8').prop('disabled', false);
                 window.localStorage.setItem('actual_week', '8');
             }

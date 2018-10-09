@@ -89,12 +89,7 @@
             var now = new Date();
 
             var weekStart = new Date(window.localStorage.getItem('mbsr_week_2'));
-            alert(weekStart.toString());
-            alert(weekStart.getTime());
-            alert(new Date().getTime().toString());
-            alert((Math.ceil((new Date().getTime() - weekStart.getTime()) / (1000))).toString());
-
-            if (Math.ceil((new Date().getTime() - weekStart.getTime()) / (1000)) < 0) {
+            if ((now - new Date(window.localStorage.getItem("mbsr_week_2").replace(/-/g, '/'))) / (1000 * 3600 * 24) > 0) {
                 $('#w2').prop('disabled', false);
                 window.localStorage.setItem('actual_week', '2');
             }

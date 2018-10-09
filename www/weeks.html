@@ -89,8 +89,8 @@
             var now = new Date();
 
             var weekStart = new Date(window.localStorage.getItem('mbsr_week_2'));
-            alert(window.localStorage.getItem('mbsr_week_2').toString());
-            alert(window.localStorage.getItem('mbsr_week_2').getTime());
+            alert(weekStart.toString());
+            alert(weekStart.getTime());
             alert(new Date().getTime().toString());
             alert((Math.ceil((new Date().getTime() - weekStart.getTime()) / (1000))).toString());
 

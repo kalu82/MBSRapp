@@ -127,7 +127,7 @@ function timedCountMeditation(medDuration) {
     }
     if (timerSec == medDurationInSec) {
         bell.play();
-        sendAction("end_" + medDuration);
+        this.endCount(medDuration);
     }
 
     // Send progress information at scheduled interval
@@ -168,6 +168,19 @@ function pauseCount(medDuration) {
     $('#btn_pause' + medDuration).prop('disabled', true);
     $('#btn_stop' + medDuration).prop('disabled', false);
     clearTimeout(timerMed);
+}
+
+function endCount(medDuration) {
+    sendAction("end_" + medDuration);
+    disable_play_btns(false);
+    bell.pause();
+    bell.currentTime = 0;
+    $('#btn_pause' + medDuration).prop('disabled', true);
+    $('#btn_stop' + medDuration).prop('disabled', true);
+    resetPlayerToCheck();
+    clearTimeout(timerMed);
+    timerSec = 0;
+    $('#act1').prop('checked', true);
 }
 
 // Controls overall buttons

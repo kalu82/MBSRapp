@@ -71,35 +71,14 @@
                 </div>
                 <br>
 
-                <!--Panel-->
-                <div class="row">
-                    <div class="col text-center">
-                        <button type="button" class="btn btn-flat btn-lg" style="background-color: Transparent; background-repeat:no-repeat; border: none; cursor:pointer; overflow: hidden; outline:none;"
-                            onclick="location.href='weeks.html'">
-                            <i class="fa fa-home"></i> Home</button>
-                    </div>
-                    <div class="col text-center">
-                        <button type="button" class="btn btn-flat btn-lg" style="background-color: Transparent; background-repeat:no-repeat; border: none; cursor:pointer; overflow: hidden; outline:none;"
-                            onclick="functionLogout();">
-                            <i class="fa fa-sign-out"></i> Logout</button>
-                    </div>
-                </div>
                 <p><br></p>
-                <!--/.Panel-->
+                <p><br></p>
 
             </div>
         </div>
     </div>
 
     <script>
-        // Set the log information
-        document.getElementById("m_sent").value = "";
-        document.getElementById("m_id").value = window.localStorage.getItem("id");
-        document.getElementById("m_username").value = window.localStorage.getItem("username");
-        document.getElementById("m_week").value = '0';
-        document.getElementById("m_day").value = '0';
-        document.getElementById("m_device").value = "app";
-
         // Write the participant's username in the page
         document.getElementById('print_userName').innerHTML = window.localStorage.getItem("username");
 

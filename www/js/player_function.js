@@ -90,27 +90,12 @@ function trackEnd(trackName, trackPlayer) {
     }
 }
 
-// Add listeners for check tracks ending
-var BS = null;
-var BSprima = null;
-var MC = null;
-var MR = null;
-var MS = null;
-var bell = null;
-
-function setPlayers(tBS, tBSprima, tMC, tMR, tMS, tbell) {
-    BS = tBS;
-    BSprima = tBSprima;
-    MC = tMC;
-    MR = tMR;
-    MS = tMS;
-    bell = tbell;
-
-    BS.addEventListener("ended", trackEnd('BS', BS));
-    BSprima.addEventListener("ended", trackEnd('BSprima', BSprima));
-    MC.addEventListener("ended", trackEnd('MC', MC));
-    MR.addEventListener("ended", trackEnd('MR', MR));
-    MS.addEventListener("ended", trackEnd('MS', MS));
+// Add event listener for track end
+function addListenerEnd(trackName, trackToCheck, actToCheck) {
+    trackToCheck.onended = function () {
+        trackEnd(trackName, trackToCheck);
+        check_act(actToCheck);
+    }
 }
 
 // Free meditation with timer

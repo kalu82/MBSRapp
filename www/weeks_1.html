@@ -39,7 +39,7 @@
     </script>
 </head>
 
-<body onload="check_boxes()">
+<body onload="check_boxes()" style="background: url('media/blue_wall.jpg') fixed center center">
 
     <!-- Hidden form for submit -->
     <form method="post" id="action_form" name="action_form" action="#">
@@ -77,7 +77,7 @@
     <audio id="bell" src="mbsr_tracks/bell.mp3" type="audio/mp3">Your browser does not support HTML5 audio.</audio>
 
     <!-- Page setup -->
-    <div class="container-fluid d-flex align-items-center justify-content-center" style="background:url('media/blue_wall.jpg')no-repeat center center fixed">
+    <div class="container-fluid d-flex justify-content-center align-items-center">
         <div class="row d-flex justify-content-center">
             <div class="col">
                 <p></p>
@@ -192,13 +192,12 @@
         document.getElementById("m_day").value = weekday;
         document.getElementById("m_device").value = "app";
 
-        // Set player info
-        setPlayers(document.getElementById("trackBS"),
-                   document.getElementById('trackBSprima'),
-                   document.getElementById('trackMC'),
-                   document.getElementById('trackMR'),
-                   document.getElementById('trackMS'),
-                   document.getElementById('bell'));
+        // Set player listener
+        addListenerEnd("BS", document.getElementById("trackBS"), 1);
+        addListenerEnd("BSprima", document.getElementById("trackBSprima"), 1);
+        addListenerEnd("MC", document.getElementById("trackMC"), 1);
+        addListenerEnd("MR", document.getElementById("trackMR"), 2);
+        addListenerEnd("MS", document.getElementById("trackMS"), 1);
     </script>
 
     <script type="text/javascript" src="cordova.js"></script>

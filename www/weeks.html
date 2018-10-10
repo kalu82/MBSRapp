@@ -37,53 +37,28 @@
 
 </head>
 
-<body onload="check_dates()">
+<body onload="check_dates()" style="background: url('media/blue_wall.jpg') fixed center center">
     <!-- Page setup -->
-    <div class="container-fluid d-flex align-items-center justify-content-center" style="background:url('media/blue_wall.jpg')no-repeat center center fixed">
+    <div class="container-fluid d-flex align-items-center justify-content-center" style="height:100%;">
         <div class="row d-flex justify-content-center">
             <div class="col">
-                <p></p>
                 <!-- Heading -->
-                <div class="ftext-center text-center white-text mb-2 animated fadeInDown">Benvenuto <span id="print_userName"></span></div>
-                <div class="ftext-center text-center white-text mb-2 animated fadeInDown">sei alla settimana <span id="print_week"></span>
+                <div class="display-8 text-center white-text mb-2 animated fadeInDown">Benvenuto <span id="print_userName"></span></div>
+                <div class="display-8 text-center white-text mb-2 animated fadeInDown">sei alla settimana <span id="print_week"></span>
                     del protocollo</div><br>
+                <h2 class="display-5 font-bold text-center white-text mb-2 animated fadeInRight">SCEGLI UNA SETTIMANA</h2>
 
-                <!--Panel-->
-                <div class="card animated fadeInLeft">
-                    <h4 class="card-header primary-color white-text">SCEGLI UNA SETTIMANA</h4>
-
-                    <div class="card-body">
-                        <div class="container">
-                            <button class="btn btn-primary btn-lg btn-block" id="w1" name="w1" onclick="location.href='weeks_1.html'">Settimana
-                                1</button>
-                            <button class="btn btn-primary btn-lg btn-block" id="w2" name="w2" onclick="location.href='weeks_2.html'"
-                                disabled>Settimana
-                                2</button>
-                            <button class="btn btn-primary btn-lg btn-block" id="w3" name="w3" onclick="location.href='weeks_3.html'"
-                                disabled>Settimana
-                                3</button>
-                            <button class="btn btn-primary btn-lg btn-block" id="w4" name="w4" onclick="location.href='weeks_4.html'"
-                                disabled>Settimana
-                                4</button>
-                            <button class="btn btn-primary btn-lg btn-block" id="w5" name="w5" onclick="location.href='weeks_5.html'"
-                                disabled>Settimana
-                                5</button>
-                            <button class="btn btn-primary btn-lg btn-block" id="w6" name="w6" onclick="location.href='weeks_6.html'"
-                                disabled>Settimana
-                                6</button>
-                            <button class="btn btn-primary btn-lg btn-block" id="w7" name="w7" onclick="location.href='weeks_7.html'"
-                                disabled>Settimana
-                                7</button>
-                            <button class="btn btn-primary btn-lg btn-block" id="w8" name="w8" onclick="location.href='weeks_8.html'"
-                                disabled>Settimana
-                                8</button>
-                        </div>
-                    </div>
+                <div class="animated fadeInLeft">
+                    <button class="btn btn-primary btn-lg btn-block" id="w1" name="w1" onclick="location.href='weeks_1.html'">Settimana 1</button>
+                    <button class="btn btn-primary btn-lg btn-block" id="w2" name="w2" onclick="location.href='weeks_2.html'" disabled>Settimana 2</button>
+                    <button class="btn btn-primary btn-lg btn-block" id="w3" name="w3" onclick="location.href='weeks_3.html'" disabled>Settimana 3</button>
+                    <button class="btn btn-primary btn-lg btn-block" id="w4" name="w4" onclick="location.href='weeks_4.html'" disabled>Settimana 4</button>
+                    <button class="btn btn-primary btn-lg btn-block" id="w5" name="w5" onclick="location.href='weeks_5.html'" disabled>Settimana 5</button>
+                    <button class="btn btn-primary btn-lg btn-block" id="w6" name="w6" onclick="location.href='weeks_6.html'" disabled>Settimana 6</button>
+                    <button class="btn btn-primary btn-lg btn-block" id="w7" name="w7" onclick="location.href='weeks_7.html'" disabled>Settimana 7</button>
+                    <button class="btn btn-primary btn-lg btn-block" id="w8" name="w8" onclick="location.href='weeks_8.html'" disabled>Settimana 8</button>
                 </div>
-                <!--/.Panel-->
-
                 <br>
-
             </div>
         </div>
     </div>

@@ -39,7 +39,7 @@
     </script>
 </head>
 
-<body onload="check_boxes()">
+<body onload="check_boxes()" style="background: url('media/blue_wall.jpg') fixed center center">
 
     <!-- Hidden form for submit -->
     <form method="post" id="action_form" name="action_form" action="#">
@@ -77,27 +77,27 @@
     <audio id="bell" src="mbsr_tracks/bell.mp3" type="audio/mp3">Your browser does not support HTML5 audio.</audio>
 
     <!-- Page setup -->
-    <div class="container-fluid d-flex align-items-center justify-content-center" style="background:url('media/blue_wall.jpg')no-repeat center center fixed">
+    <div class="container-fluid d-flex align-items-center justify-content-center">
         <div class="row d-flex justify-content-center">
             <div class="col">
                 <p></p>
                 <!-- Heading -->
                 <h2 class="display-5 font-bold text-center white-text mb-2 animated fadeInDown">SETTIMA SETTIMANA</h2><br>
-    
+
                 <!--Panel-->
                 <div class="card animated fadeInLeft">
                     <h4 class="card-header primary-color white-text">Compiti giornalieri</h4>
-    
+
                     <div class="card-body">
-    
+
                         <div class="container">
-    
+
                             <div class="row" id="row_act1">
                                 <div class="col">
                                     <input type="checkbox" name="act1" id="act1" onclick="check_act(1);" autocomplete="off">
                                     Alternativamente:<p></p>
                                     <p></p>
-    
+
                                     <ul class="fa-ul">
                                         <li><i class="fa-li fa fa-square"></i>Pratica a scelta senza istruzioni (45
                                             min)</li>
@@ -111,7 +111,7 @@
                                                     disabled><i class="fa fa-stop"></i></button>
                                             </div>
                                         </li><br>
-    
+
                                         <li><i class="fa-li fa fa-square"></i>Oppure le due pratiche:<p></p>
                                         </li>
                                         <li>
@@ -128,7 +128,7 @@
                                                             disabled><i class="fa fa-stop"></i></button>
                                                     </div>
                                                 </li><br>
-    
+
                                                 <li><i class="fa-li fa fa-square"></i>Pratica a scelta senza istruzioni
                                                     (15 min)</li>
                                                 <li>
@@ -145,9 +145,9 @@
                                         </li>
                                     </ul>
                                     <p></p>
-    
+
                                     <p>Se hai problemi a praticare senza istruzioni, qui trovi le varie pratiche:</p>
-    
+
                                     <ul class="fa-ul">
                                         <li><i class="fa-li fa fa-square"></i>Meditazione sul respiro (13 min)</li>
                                         <li>
@@ -160,7 +160,7 @@
                                                     disabled><i class="fa fa-stop"></i></button>
                                             </div>
                                         </li><br>
-    
+
                                         <li><i class="fa-li fa fa-square"></i>Meditazione seduta (25 min)</li>
                                         <li>
                                             <div class="btn-group">
@@ -172,7 +172,7 @@
                                                     disabled><i class="fa fa-stop"></i></button>
                                             </div>
                                         </li><br>
-    
+
                                         <li><i class="fa-li fa fa-square"></i>Body scan (30 min)</li>
                                         <li>
                                             <div class="btn-group">
@@ -184,7 +184,7 @@
                                                     disabled><i class="fa fa-stop"></i></button>
                                             </div>
                                         </li><br>
-    
+
                                         <li><i class="fa-li fa fa-square"></i>Movimento consapevole (40 min)</li>
                                         <li>
                                             <div class="btn-group">
@@ -199,16 +199,16 @@
                                     </ul>
                                 </div>
                             </div>
-    
+
                             <br>
-    
+
                             <div class="row" id="row_act2">
                                 <div class="col">
                                     <input type="checkbox" name="act2" id="act2" onclick="check_act(2);" autocomplete="off">
                                     Diario della pratica<p></p>
                                 </div>
                             </div>
-    
+
                             <div class="row" id="row_act3">
                                 <div class="col">
                                     <input type="checkbox" name="act3" id="act3" onclick="check_act(3);" autocomplete="off">
@@ -219,9 +219,9 @@
                     </div>
                 </div>
                 <!--/.Panel-->
-    
+
                 <br>
-    
+
                 <!--Panel-->
                 <div class="card animated fadeInLeft">
                     <h4 class="card-header primary-color white-text">Altre attività da fare entro il prossimo incontro</h4>
@@ -269,6 +269,13 @@
         document.getElementById("m_week").value = week.toString();
         document.getElementById("m_day").value = weekday;
         document.getElementById("m_device").value = "app";
+
+        // Set player listener
+        addListenerEnd("BS", document.getElementById("trackBS"), 1);
+        addListenerEnd("BSprima", document.getElementById("trackBSprima"), 1);
+        addListenerEnd("MC", document.getElementById("trackMC"), 1);
+        addListenerEnd("MR", document.getElementById("trackMR"), 1);
+        addListenerEnd("MS", document.getElementById("trackMS"), 1);
     </script>
 
     <script type="text/javascript" src="cordova.js"></script>

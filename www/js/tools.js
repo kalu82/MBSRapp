@@ -1,5 +1,9 @@
 var storage = window.localStorage;
 
+function n2digits(n) {
+    return n > 9 ? "" + n : "0" + n;
+}
+
 function checkLogin() {
     if (storage.getItem("username") != null) {
         document.getElementById("i_username").value = storage.getItem("username");
@@ -89,12 +93,12 @@ function setLogInfo() {
         + currentdate.getSeconds();
     
     // Set the log information
-    document.getElementById("m_date").value = currentdate.getDate().toString();
-    document.getElementById("m_month").value = (currentdate.getMonth() + 1).toString();
-    document.getElementById("m_year").value = currentdate.getFullYear().toString();
-    document.getElementById("m_hour").value = currentdate.getHours().toString();
-    document.getElementById("m_min").value = currentdate.getMinutes().toString();
-    document.getElementById("m_sec").value = currentdate.getSeconds().toString();
+    document.getElementById("m_date").value = n2digits(currentdate.getDate().toString());
+    document.getElementById("m_month").value = n2digits((currentdate.getMonth() + 1).toString());
+    document.getElementById("m_year").value = n2digits(currentdate.getFullYear().toString());
+    document.getElementById("m_hour").value = n2digits(currentdate.getHours().toString());
+    document.getElementById("m_min").value = n2digits(currentdate.getMinutes().toString());
+    document.getElementById("m_sec").value = n2digits(currentdate.getSeconds().toString());
     document.getElementById("m_timestring").value = actiondate.toString();
 
     document.getElementById("m_playingTrack").value = what_is_playing;

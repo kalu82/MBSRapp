@@ -191,6 +191,14 @@
         document.getElementById("m_week").value = week.toString();
         document.getElementById("m_day").value = weekday;
         document.getElementById("m_device").value = "app";
+
+        // Set player info
+        setPlayers(document.getElementById("trackBS"),
+                   document.getElementById('trackBSprima'),
+                   document.getElementById('trackMC'),
+                   document.getElementById('trackMR'),
+                   document.getElementById('trackMS'),
+                   document.getElementById('bell'));
     </script>
 
     <script type="text/javascript" src="cordova.js"></script>

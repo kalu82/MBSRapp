@@ -105,14 +105,13 @@ function setPlayers(tBS, tBSprima, tMC, tMR, tMS, tbell) {
     MR = tMR;
     MS = tMS;
     bell = tbell;
+
+    BS.addEventListener("ended", trackEnd('BS', BS));
+    BSprima.addEventListener("ended", trackEnd('BSprima', BSprima));
+    MC.addEventListener("ended", trackEnd('MC', MC));
+    MR.addEventListener("ended", trackEnd('MR', MR));
+    MS.addEventListener("ended", trackEnd('MS', MS));
 }
-
-BS.addEventListener("ended", trackEnd('BS', BS));
-BSprima.addEventListener("ended", trackEnd('BSprima', BSprima));
-MC.addEventListener("ended", trackEnd('MC', MC));
-MR.addEventListener("ended", trackEnd('MR', MR));
-MS.addEventListener("ended", trackEnd('MS', MS));
-
 
 // Free meditation with timer
 var timerSec = 0;

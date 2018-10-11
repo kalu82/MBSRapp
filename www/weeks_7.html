@@ -74,7 +74,9 @@
     <audio id="trackMC" src="mbsr_tracks/mov_cons.mp3" type="audio/mp3">Your browser does not support HTML5 audio.</audio>
     <audio id="trackMR" src="mbsr_tracks/med_resp.mp3" type="audio/mp3">Your browser does not support HTML5 audio.</audio>
     <audio id="trackMS" src="mbsr_tracks/med_sed.mp3" type="audio/mp3">Your browser does not support HTML5 audio.</audio>
-    <audio id="bell" src="mbsr_tracks/bell.mp3" type="audio/mp3">Your browser does not support HTML5 audio.</audio>
+    <audio id="track45" src="mbsr_tracks/med45.mp3" type="audio/mp3">Your browser does not support HTML5 audio.</audio>
+    <audio id="track30" src="mbsr_tracks/med30.mp3" type="audio/mp3">Your browser does not support HTML5 audio.</audio>
+    <audio id="track15" src="mbsr_tracks/med15.mp3" type="audio/mp3">Your browser does not support HTML5 audio.</audio>
 
     <!-- Page setup -->
     <div class="container-fluid d-flex align-items-center justify-content-center">
@@ -103,12 +105,14 @@
                                             min)</li>
                                         <li>
                                             <div class="btn-group">
-                                                <button class="btn btn-blue" id="btn_play45" onclick="startCount(45)"><i
-                                                        class="fa fa-play"></i></button>
-                                                <button class="btn btn-yellow" id="btn_pause45" onclick="pauseCount(45)"
-                                                    disabled><i class="fa fa-pause"></i></button>
-                                                <button class="btn btn-red" id="btn_stop45" onclick="stopCount(45)"
-                                                    disabled><i class="fa fa-stop"></i></button>
+                                                <div class="btn-group">
+                                                    <button class="btn btn-blue" id="btn_play45" onclick="trackPlay('45',document.getElementById('track45'))"><i
+                                                            class="fa fa-play"></i></button>
+                                                    <button class="btn btn-yellow" id="btn_pause45" onclick="trackPause('45',document.getElementById('track45'))"
+                                                        disabled><i class="fa fa-pause"></i></button>
+                                                    <button class="btn btn-red" id="btn_stop45" onclick="trackStop('45',document.getElementById('track45'))"
+                                                        disabled><i class="fa fa-stop"></i></button>
+                                                </div>
                                             </div>
                                         </li><br>
 
@@ -120,11 +124,9 @@
                                                     (30 min)</li>
                                                 <li>
                                                     <div class="btn-group">
-                                                        <button class="btn btn-blue" id="btn_play30" onclick="startCount(30)"><i
-                                                                class="fa fa-play"></i></button>
-                                                        <button class="btn btn-yellow" id="btn_pause30" onclick="pauseCount(30)"
-                                                            disabled><i class="fa fa-pause"></i></button>
-                                                        <button class="btn btn-red" id="btn_stop30" onclick="stopCount(30)"
+                                                        <button class="btn btn-blue" id="btn_play30" onclick="trackPlay('30',document.getElementById('track30'))"><i class="fa fa-play"></i></button>
+                                                        <button class="btn btn-yellow" id="btn_pause30" onclick="trackPause('30',document.getElementById('track30'))" disabled><i class="fa fa-pause"></i></button>
+                                                        <button class="btn btn-red" id="btn_stop30" onclick="trackStop('30',document.getElementById('track30'))"
                                                             disabled><i class="fa fa-stop"></i></button>
                                                     </div>
                                                 </li><br>
@@ -133,11 +135,9 @@
                                                     (15 min)</li>
                                                 <li>
                                                     <div class="btn-group">
-                                                        <button class="btn btn-blue" id="btn_play15" onclick="startCount(15)"><i
-                                                                class="fa fa-play"></i></button>
-                                                        <button class="btn btn-yellow" id="btn_pause15" onclick="pauseCount(15)"
-                                                            disabled><i class="fa fa-pause"></i></button>
-                                                        <button class="btn btn-red" id="btn_stop15" onclick="stopCount(15)"
+                                                        <button class="btn btn-blue" id="btn_play15" onclick="trackPlay('15',document.getElementById('track15'))"><i class="fa fa-play"></i></button>
+                                                        <button class="btn btn-yellow" id="btn_pause15" onclick="trackPause('15',document.getElementById('track15'))" disabled><i class="fa fa-pause"></i></button>
+                                                        <button class="btn btn-red" id="btn_stop15" onclick="trackStop('15',document.getElementById('track15'))"
                                                             disabled><i class="fa fa-stop"></i></button>
                                                     </div>
                                                 </li>

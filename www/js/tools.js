@@ -85,23 +85,22 @@ function setLogText() {
 function setLogInfo() {
     var currentdate = new Date();
     
-    var actiondate = currentdate.getDate() + "-"
-        + (currentdate.getMonth() + 1) + "-"
-        + currentdate.getFullYear() + " "
-        + currentdate.getHours() + ":"
-        + currentdate.getMinutes() + ":"
-        + currentdate.getSeconds();
+    var actiondate = n2digits(currentdate.getFullYear()).toString() + "-"
+        + n2digits((currentdate.getMonth() + 1)).toString() + "-"
+        + n2digits(currentdate.getDate()).toString() + " "
+        + n2digits(currentdate.getHours()).toString() + ":"
+        + n2digits(currentdate.getMinutes()).toString() + ":"
+        + n2digits(currentdate.getSeconds()).toString();
     
     // Set the log information
-    document.getElementById("m_date").value = currentdate.getDate().toString();
-    document.getElementById("m_month").value = (currentdate.getMonth() + 1).toString();
-    document.getElementById("m_year").value = currentdate.getFullYear().toString();
-    document.getElementById("m_hour").value = currentdate.getHours().toString();
-    document.getElementById("m_min").value = currentdate.getMinutes().toString();
-    document.getElementById("m_sec").value = currentdate.getSeconds().toString();
+    document.getElementById("m_date").value = n2digits(currentdate.getDate()).toString();
+    document.getElementById("m_month").value = n2digits((currentdate.getMonth() + 1)).toString();
+    document.getElementById("m_year").value = n2digits(currentdate.getFullYear()).toString();
+    document.getElementById("m_hour").value = n2digits(currentdate.getHours()).toString();
+    document.getElementById("m_min").value = n2digits(currentdate.getMinutes()).toString();
+    document.getElementById("m_sec").value = n2digits(currentdate.getSeconds()).toString();
     document.getElementById("m_timestring").value = actiondate.toString();
 
     document.getElementById("m_playingTrack").value = what_is_playing;
     document.getElementById("m_progressTrack").value = progression_playing_track;
 }
-

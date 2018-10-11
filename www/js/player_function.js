@@ -1,6 +1,6 @@
 // Timer for player check
 var currentPlayerToCheck = null;
-var TIMER_PERIOD_FOR_PLAYER_CHECK_MS = 10000;
+var TIMER_PERIOD_FOR_PLAYER_CHECK_MS = 60000;
 var what_is_playing = null;
 var progression_playing_track = null;
 

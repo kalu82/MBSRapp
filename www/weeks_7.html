@@ -124,8 +124,10 @@
                                                     (30 min)</li>
                                                 <li>
                                                     <div class="btn-group">
-                                                        <button class="btn btn-blue" id="btn_play30" onclick="trackPlay('30',document.getElementById('track30'))"><i class="fa fa-play"></i></button>
-                                                        <button class="btn btn-yellow" id="btn_pause30" onclick="trackPause('30',document.getElementById('track30'))" disabled><i class="fa fa-pause"></i></button>
+                                                        <button class="btn btn-blue" id="btn_play30" onclick="trackPlay('30',document.getElementById('track30'))"><i
+                                                                class="fa fa-play"></i></button>
+                                                        <button class="btn btn-yellow" id="btn_pause30" onclick="trackPause('30',document.getElementById('track30'))"
+                                                            disabled><i class="fa fa-pause"></i></button>
                                                         <button class="btn btn-red" id="btn_stop30" onclick="trackStop('30',document.getElementById('track30'))"
                                                             disabled><i class="fa fa-stop"></i></button>
                                                     </div>
@@ -135,8 +137,10 @@
                                                     (15 min)</li>
                                                 <li>
                                                     <div class="btn-group">
-                                                        <button class="btn btn-blue" id="btn_play15" onclick="trackPlay('15',document.getElementById('track15'))"><i class="fa fa-play"></i></button>
-                                                        <button class="btn btn-yellow" id="btn_pause15" onclick="trackPause('15',document.getElementById('track15'))" disabled><i class="fa fa-pause"></i></button>
+                                                        <button class="btn btn-blue" id="btn_play15" onclick="trackPlay('15',document.getElementById('track15'))"><i
+                                                                class="fa fa-play"></i></button>
+                                                        <button class="btn btn-yellow" id="btn_pause15" onclick="trackPause('15',document.getElementById('track15'))"
+                                                            disabled><i class="fa fa-pause"></i></button>
                                                         <button class="btn btn-red" id="btn_stop15" onclick="trackStop('15',document.getElementById('track15'))"
                                                             disabled><i class="fa fa-stop"></i></button>
                                                     </div>
@@ -276,6 +280,9 @@
         addListenerEnd("MC", document.getElementById("trackMC"), 1);
         addListenerEnd("MR", document.getElementById("trackMR"), 1);
         addListenerEnd("MS", document.getElementById("trackMS"), 1);
+        addListenerEnd("45", document.getElementById("track45"), 1);
+        addListenerEnd("30", document.getElementById("track30"), 1);
+        addListenerEnd("15", document.getElementById("track15"), 1);
     </script>
 
     <script type="text/javascript" src="cordova.js"></script>

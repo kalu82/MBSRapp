@@ -4,10 +4,6 @@ var TIMER_PERIOD_FOR_PLAYER_CHECK_MS = 60000;
 var what_is_playing = null;
 var progression_playing_track = null;
 
-function sendPlayingInfo(elapsedProgress) {
-    sendAction("playing" + what_is_playing + "_" + elapsedProgress + "%");
-}
-
 function resetPlayerToCheck() {
     what_is_playing = null;
     progression_playing_track = null;
@@ -21,7 +17,7 @@ function timedCountCheckPlayer() {
     timerPlayerCheck = setTimeout(function () { timedCountCheckPlayer() }, 1000);
     if (countTimeoutPlayer == TIMER_PERIOD_FOR_PLAYER_CHECK_MS / 1000) {
         progression_playing_track = ~~(currentPlayerToCheck.currentTime / currentPlayerToCheck.duration * 100);
-        sendPlayingInfo(progression_playing_track);
+        sendAction("playing" + what_is_playing);
         countTimeoutPlayer = 0;
     }
 }
@@ -106,30 +102,11 @@ function timedCountMeditation(medDuration) {
     var medDurationInSec = medDuration * 60;
     timerSec = timerSec + 1;
     timerMed = setTimeout(function () { timedCountMeditation(medDuration) }, 1000);
-    if (timerSec == 1) {
-        bell.play();
-    }
-    if (timerSec == medDurationInSec) {
-        bell.play();
-        this.endCount(medDuration);
-    }
 
     // Send progress information at scheduled interval
     if (~~(timerSec % (TIMER_PERIOD_FOR_PLAYER_CHECK_MS / 1000)) == 0) {
         progression_playing_track = ~~(timerSec / medDurationInSec * 100);
-        sendPlayingInfo(progression_playing_track);
-    }
-}
-
-function timedCountMeditation(medDuration) {
-    var medDurationInSec = medDuration * 60;
-    timerSec = timerSec + 1;
-    timerMed = setTimeout(function () { timedCountMeditation(medDuration) }, 1000);
-
-    // Send progress information at scheduled interval
-    if (~~(timerSec % (TIMER_PERIOD_FOR_PLAYER_CHECK_MS / 1000)) == 0) {
-        progression_playing_track = ~~(timerSec / medDurationInSec * 100);
-        sendPlayingInfo(progression_playing_track);
+        sendAction("playing" + what_is_playing);
     }
 
     // Meditation end

@@ -121,21 +121,51 @@ function timedCountMeditation(medDuration) {
     }
 }
 
+function timedCountMeditation(medDuration) {
+    var medDurationInSec = medDuration * 60;
+    timerSec = timerSec + 1;
+    timerMed = setTimeout(function () { timedCountMeditation(medDuration) }, 1000);
+
+    // Send progress information at scheduled interval
+    if (~~(timerSec % (TIMER_PERIOD_FOR_PLAYER_CHECK_MS / 1000)) == 0) {
+        progression_playing_track = ~~(timerSec / medDurationInSec * 100);
+        sendPlayingInfo(progression_playing_track);
+    }
+
+    // Meditation end
+    if (timerSec == medDurationInSec) {
+        document.getElementById("bell").play();
+        sendAction("end_" + medDuration);
+        resetPlayerToCheck();
+        clearTimeout(timerMed);
+
+        disable_play_btns(false);
+        $('#btn_pause' + medDuration).prop('disabled', true);
+        $('#btn_stop' + medDuration).prop('disabled', true);
+
+        check_act(1);
+        $('#act1').prop('checked', true);
+    }
+}
+
 function startCount(medDuration) {
     sendAction("play_" + medDuration);
+    document.getElementById("bell").currentTime = 0;
+    document.getElementById("bell").play();
     disable_play_btns(true);
     $('#btn_pause' + medDuration).prop('disabled', false);
     $('#btn_stop' + medDuration).prop('disabled', false);
     what_is_playing = medDuration;
     progression_playing_track = 0;
     timerSec = 0;
+    timerMed = setTimeout(function () { timedCountMeditation(medDuration) }, 1000);
 }
 
 function stopCount(medDuration) {
     sendAction("stop_" + medDuration);
     disable_play_btns(false);
-    bell.pause();
-    bell.currentTime = 0;
+    document.getElementById("bell").pause();
+    document.getElementById("bell").currentTime = 0;
     $('#btn_pause' + medDuration).prop('disabled', true);
     $('#btn_stop' + medDuration).prop('disabled', true);
     resetPlayerToCheck();
@@ -145,8 +175,8 @@ function stopCount(medDuration) {
 
 function pauseCount(medDuration) {
     sendAction("pause_" + medDuration);
-    bell.pause();
-    bell.currentTime = 0;
+    document.getElementById("bell").pause();
+    document.getElementById("bell").currentTime = 0;
     $('#btn_play' + medDuration).prop('disabled', false);
     $('#btn_pause' + medDuration).prop('disabled', true);
     $('#btn_stop' + medDuration).prop('disabled', false);

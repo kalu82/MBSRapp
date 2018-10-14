@@ -47,13 +47,12 @@
                 <!-- Heading -->
                 <br>
                 <div class="display-8 text-center white-text mb-2 animated fadeInDown">Benvenuto <span id="print_userName"></span></div><br>
-                <div class="display-8 text-center white-text mb-2 animated fadeInDown">sei alla settimana <span id="print_week"></span>
-                    del protocollo</div><br>
+                <div class="display-8 text-center white-text mb-2 animated fadeInDown"><span id="print_week"></span></div><br>
                 <h2 class="display-5 font-bold text-center white-text mb-2 animated fadeInRight">SCEGLI UNA SETTIMANA</h2><br>
 
                 <div class="animated fadeInLeft">
-                    <button class="btn btn-primary btn-lg btn-block" id="w1" name="w1" onclick="location.href='weeks_1.html'">Settimana
-                        1</button>
+                    <button class="btn btn-primary btn-lg btn-block" id="w1" name="w1" onclick="location.href='weeks_1.html'" 
+                        disabled>Settimana 1</button>
                     <button class="btn btn-primary btn-lg btn-block" id="w2" name="w2" onclick="location.href='weeks_2.html'"
                         disabled>Settimana 2</button>
                     <button class="btn btn-primary btn-lg btn-block" id="w3" name="w3" onclick="location.href='weeks_3.html'"
@@ -85,12 +84,14 @@
         function check_dates() {
             // Check which week is the actual one
             var now = new Date();
+            
+            document.getElementById('print_week').innerHTML = "Il corso deve ancora inziare!";
 
-            for (var w = 2; w <= 8; w++) {
+            for (var w = 1; w <= 8; w++) {
                 var weekStart = new Date(window.localStorage.getItem('mbsr_week_' + w));
                 if ((now - new Date(window.localStorage.getItem("mbsr_week_" + w).replace(/-/g, '/'))) / (1000 * 3600 * 24) > 0) {
                     $('#w' + w).prop('disabled', false);
-                    document.getElementById('print_week').innerHTML = w;
+                    document.getElementById('print_week').innerHTML = "sei alla settimana " + w + " del protocollo";
                 }
             }
         }

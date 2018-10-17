@@ -39,14 +39,14 @@ function sendAction(act_to_send) {
         });
         document.getElementById("m_sent").value = "1";
         
-        // // Send also on a secondary db
-        // $.ajax({
-        //     url: "http://mbsr.x10host.com/php_scripts/setAction.php",
-        //     type: "POST",
-        //     data: form_data,
-        //     processData: false,  // tell jQuery not to process the data
-        //     contentType: false   // tell jQuery not to set contentType
-        // });
+        // Send also on a secondary db
+        $.ajax({
+            url: "http://mbsr.x10host.com/php_scripts/sendAction.php",
+            type: "POST",
+            data: form_data,
+            processData: false,  // tell jQuery not to process the data
+            contentType: false   // tell jQuery not to set contentType
+        });
 
         return 1;
     } else {
@@ -63,6 +63,15 @@ function sendActionFromTxt() {
         var form_data = new FormData(document.getElementById("action_form"));
         $.ajax({
             url: "http://www.mindfulness-istc.online/php_scripts/sendAction.php",
+            type: "POST",
+            data: form_data,
+            processData: false,  // tell jQuery not to process the data
+            contentType: false   // tell jQuery not to set contentType
+        });
+
+        // Send also on a secondary db
+        $.ajax({
+            url: "http://mbsr.x10host.com/php_scripts/sendAction.php",
             type: "POST",
             data: form_data,
             processData: false,  // tell jQuery not to process the data

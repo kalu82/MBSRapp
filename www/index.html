@@ -117,12 +117,10 @@
                         window.localStorage.setItem('username', document.getElementById("i_username").value);
                         window.localStorage.setItem('id', document.getElementById("i_id").value);
 
-                        var d = new Date(data);
-                        d.setHours(20, 00, 00, 0);
-                        window.localStorage.setItem('mbsr_week_1', d);
+                        window.localStorage.setItem('startingHour', data);
 
                         setTimeout(function () {
-                            getWeek2();
+                            getWeek1();
                         }, 100);
 
                     } else {    //data-send fails
@@ -136,6 +134,31 @@
             }
         }
 
+        function getWeek1() {
+            var form_data = new FormData(document.getElementById("login_form"));
+            $.ajax({
+                url: "http://www.mindfulness-istc.online/php_scripts/getWeek1.php",
+                type: "POST",
+                data: form_data,
+                processData: false,  // tell jQuery not to process the data
+                contentType: false   // tell jQuery not to set contentType
+            }).done(function (data) {
+                if (data != 0) {  //success
+                    var d = new Date(data);
+                    d.setHours(window.localStorage.getItem('startingHour'), 00, 00, 0);
+                    window.localStorage.setItem('mbsr_week_1', d);
+
+                    setTimeout(function () {
+                        getWeek2();
+                    }, 100);
+
+                } else {    //data-send fails
+                    alert("Login failed! Please try again");
+                }
+            });
+            return false;
+        }
+
         function getWeek2() {
             var form_data = new FormData(document.getElementById("login_form"));
             $.ajax({
@@ -147,7 +170,7 @@
             }).done(function (data) {
                 if (data != 0) {  //success
                     var d = new Date(data);
-                    d.setHours(20, 00, 00, 0);
+                    d.setHours(window.localStorage.getItem('startingHour'), 00, 00, 0);
                     window.localStorage.setItem('mbsr_week_2', d);
 
                     setTimeout(function () {
@@ -172,7 +195,7 @@
             }).done(function (data) {
                 if (data != 0) {  //success
                     var d = new Date(data);
-                    d.setHours(20, 00, 00, 0);
+                    d.setHours(window.localStorage.getItem('startingHour'), 00, 00, 0);
                     window.localStorage.setItem('mbsr_week_3', d);
 
                     setTimeout(function () {
@@ -197,7 +220,7 @@
             }).done(function (data) {
                 if (data != 0) {  //success
                     var d = new Date(data);
-                    d.setHours(20, 00, 00, 0);
+                    d.setHours(window.localStorage.getItem('startingHour'), 00, 00, 0);
                     window.localStorage.setItem('mbsr_week_4', d);
 
                     setTimeout(function () {
@@ -222,7 +245,7 @@
             }).done(function (data) {
                 if (data != 0) {  //success
                     var d = new Date(data);
-                    d.setHours(20, 00, 00, 0);
+                    d.setHours(window.localStorage.getItem('startingHour'), 00, 00, 0);
                     window.localStorage.setItem('mbsr_week_5', d);
 
                     setTimeout(function () {
@@ -247,7 +270,7 @@
             }).done(function (data) {
                 if (data != 0) {  //success
                     var d = new Date(data);
-                    d.setHours(20, 00, 00, 0);
+                    d.setHours(window.localStorage.getItem('startingHour'), 00, 00, 0);
                     window.localStorage.setItem('mbsr_week_6', d);
 
                     setTimeout(function () {
@@ -272,7 +295,7 @@
             }).done(function (data) {
                 if (data != 0) {  //success
                     var d = new Date(data);
-                    d.setHours(20, 00, 00, 0);
+                    d.setHours(window.localStorage.getItem('startingHour'), 00, 00, 0);
                     window.localStorage.setItem('mbsr_week_7', d);
 
                     setTimeout(function () {
@@ -297,7 +320,7 @@
             }).done(function (data) {
                 if (data != 0) {  //success
                     var d = new Date(data);
-                    d.setHours(20, 00, 00, 0);
+                    d.setHours(window.localStorage.getItem('startingHour'), 00, 00, 0);
                     window.localStorage.setItem('mbsr_week_8', d);
 
                     setTimeout(function () {

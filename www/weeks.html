@@ -87,6 +87,7 @@
             
             document.getElementById('print_week').innerHTML = "Il corso deve ancora inziare!";
 
+            var flag = false;
             for (var w = 1; w <= 8; w++) {
                 var weekStart = new Date(window.localStorage.getItem('mbsr_week_' + w));
                 //alert(window.localStorage.getItem('mbsr_week_'+w));
@@ -96,7 +97,14 @@
 
                     $('#w' + w).prop('disabled', false);
                     document.getElementById('print_week').innerHTML = "sei alla settimana " + w + " del protocollo";
+                    flag = true;
                 }
+            }
+
+            // Delete local storage if no week is activated
+            if (flag==false) {
+                window.localStorage.removeItem("username");
+                window.localStorage.removeItem("id");
             }
         }
     </script>

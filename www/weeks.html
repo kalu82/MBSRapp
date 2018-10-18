@@ -89,6 +89,7 @@
 
             for (var w = 1; w <= 8; w++) {
                 var weekStart = new Date(window.localStorage.getItem('mbsr_week_' + w));
+                alert(window.localStorage.getItem('mbsr_week_'+w));
                 //if ((now - new Date(window.localStorage.getItem("mbsr_week_" + w).replace(/-/g, '/'))) / (1000 * 3600 * 24) > 0) {
                 if ((now - new Date(window.localStorage.getItem("mbsr_week_" + w).replace(/-/g, '/'))) / (1000      * 3600 * 24) > 1 ||
                     ((now - new Date(window.localStorage.getItem("mbsr_week_" + w).replace(/-/g, '/'))) / (1000 * 3600 * 24) > 0 && (now.getHours() - window.localStorage.getItem("startingHour")) >= 0)) {
